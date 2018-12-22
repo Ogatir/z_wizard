@@ -1,7 +1,17 @@
+package gui;
+
+import gui.DataBaseSettings;
+import gui.containers.ZmapParams;
+import gui.controllers.ExecutionManager;
+
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MainWindow extends JFrame {
     private JPanel mainPanel;
@@ -23,18 +33,35 @@ public class MainWindow extends JFrame {
     private JCheckBox commandCheckBox;
     private JTextField commandField;
     private JButton newProjectBtn;
+    private JButton utilSetBtn;
+    private JPanel zmapSet;
+    private JTextField portsField;
+    private JTextField addrNumberField;
+    private JTextField speedField;
+    private JComboBox speedBox;
+    private JTextField threadsField;
     private JTextArea TextArea;
 
-    private String progs[] = { "ztag", "zgrab" , "zdns" };
+    private UTIL_TYPE util_type = UTIL_TYPE.UT_INVALID;
+    private String progs[] = { "Zmap only" ,"Ztag", "Zgrab" , "Zdns" };
+    private String speedTypes[] = {"k", "M"};
+    ExecutionManager executionManager;
 
     public MainWindow() {
+        executionManager = new ExecutionManager();
+
         this.getContentPane().add(mainPanel);
         progsList.setListData(progs);
         commandField.setEnabled(false);
+        String lbl = "<html>" + "Настроить" + "<br>" + "утилиту"+ "</html>";
+        utilSetBtn.setText(lbl);
+        for (String item : speedTypes)
+            speedBox.addItem(item);
+        speedBox.setSelectedIndex(1);
+
 
         dbSetBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-
             DataBaseSettings db = new DataBaseSettings();
             }
         });
@@ -61,9 +88,14 @@ public class MainWindow extends JFrame {
         });
         commandCheckBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent itemEvent) {
-                if (itemEvent.getStateChange()==1)
+                if (itemEvent.getStateChange()==1) {
                     commandField.setEnabled(true);
-                else commandField.setEnabled(false);
+                    zmapSet.setEnabled(false);
+                }
+                else {
+                    commandField.setEnabled(false);
+                    zmapSet.setEnabled(true);
+                }
             }
         });
         saveProjectBtn.addActionListener(new ActionListener() {
@@ -89,6 +121,45 @@ public class MainWindow extends JFrame {
         newProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
 
+
+
+            }
+        });
+        progsList.addListSelectionListener(new ListSelectionListener() {
+            public void valueChanged(ListSelectionEvent listSelectionEvent) {
+                int index = progsList.getSelectedIndex();
+                switch (index){
+                    case 0:
+                        util_type = UTIL_TYPE.UT_ZMAP_ONLY;
+                        break;
+                    case 1:
+                        //zmapSet.setVisible(true);
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                }
+            }
+        });
+        startBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                String result;
+                outputArea.append("Starting:\n");
+                if (commandCheckBox.isSelected()){
+                    result = executionManager.ExecuteCommand(commandField.getText());
+                } else {
+                    Map <String, String> params = new HashMap <String, String>();
+                    ZmapParams zmapParams = new ZmapParams();
+                    zmapParams.AddZmapParam("-B " ,
+                            speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex()));
+                    zmapParams.AddZmapParam("-p ", portsField.getText());
+                    zmapParams.AddZmapParam("-n ", addrNumberField.getText());
+                    zmapParams.AddZmapParam("-T ", threadsField.getText());
+                    result = executionManager.ExecuteUtils(util_type, zmapParams);
+                }
+                outputArea.append(result);
+                outputArea.append("Finished\n\n");
             }
         });
     }

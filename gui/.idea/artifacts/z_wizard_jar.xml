@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="z_wizard:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/z_wizard_jar</output-path>
+    <root id="archive" name="z_wizard.jar">
+      <element id="module-output" name="z_wizard" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/google/code/gson/gson/2.8.5/gson-2.8.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
