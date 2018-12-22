@@ -28,10 +28,7 @@ cd ~/go/src/github.com/zmap/zgrab
 иными словами чтоб zgrabообще взлетел, нужно чтобы мы запустили zmap а уже потом мы
 запускали zgrab
 что я имею ввиду.
-zmap -B 10M -p 443 -n 10000 -o boom.json --output-fields=* | zgrab --port 443 --tls --http="/" --output-file=boom.json (запускается откуда угодно)
-и вот ТЕПЕРЬ по окончании примерно дневного марафона (да, потому что мы не ставили 
-ограничений в zmap  файл zmapa) в файлике BOOM1 который лежит в этой же папке конечно
-будет уже хоть какая то инфа по собранным баннерам с портов на сайтах
+zmap -B 10M -p 443 -n 10000 -o boom.json --output-fields=* | zgrab --port 443 --tls --http="/" --output-file=boom.json  
 как пример инфы:
 root@ubuntu:~/go/src/github.com/zmap/zgrab# cat boom.json
 saddr,saddr-raw,daddr,daddr-raw,ipid,ttl,sport,dport,seqnum,acknum,window,classification,success,repeat,cooldown,timestamp-str,timestamp-ts,timestamp-us
