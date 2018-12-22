@@ -28,17 +28,14 @@ cd ~/go/src/github.com/zmap/zgrab
 иными словами чтоб zgrabообще взлетел, нужно чтобы мы запустили zmap а уже потом мы
 запускали zgrab
 что я имею ввиду.
-zmap -B 10M -p 443 -n 10000 -o boom.json --output-fields=* | zgrab --port 443 --tls --http="/" --output-file=boom.json
+zmap -B 10M -p 443 -n 10000 -o boom.json --output-fields=* | zgrab --port 443 --tls --http="/" --output-file=boom.json (запускается откуда угодно)
 и вот ТЕПЕРЬ по окончании примерно дневного марафона (да, потому что мы не ставили 
 ограничений в zmap  файл zmapa) в файлике BOOM1 который лежит в этой же папке конечно
 будет уже хоть какая то инфа по собранным баннерам с портов на сайтах
 как пример инфы:
-root@ubuntu:~/go/src/github.com/zmap/zgrab# cat BOOM1 
-{"ip":"173.223.216.212",
-"timestamp":"2018-12-22T04:57:49-08:00",
-"data":{"http":{}},
-"error":"Get https://173.223.216.212:443/: 
-dial tcp 173.223.216.212:443: i/o timeout"}
+root@ubuntu:~/go/src/github.com/zmap/zgrab# cat boom.json
+saddr,saddr-raw,daddr,daddr-raw,ipid,ttl,sport,dport,seqnum,acknum,window,classification,success,repeat,cooldown,timestamp-str,timestamp-ts,timestamp-us
+35.187.64.132,2218834723,192.168.96.130,2187372736,65455,128,443,34868,1376469762,2014574752,64240,synack,1,0,1,
 и там еще туча всего всего всего. крч вы поняли. флаги тут (https://github.com/zmap/zgrab),
 но они в принципе такие же, как и в zdns
 
