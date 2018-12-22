@@ -1,8 +1,7 @@
-package gui;
+package z_wizard;
 
-import gui.DataBaseSettings;
-import gui.containers.ZmapParams;
-import gui.controllers.ExecutionManager;
+import z_wizard.controllers.ExecutionManager;
+import z_wizard.containers.ZmapParams;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -55,17 +54,19 @@ public class MainWindow extends JFrame {
         commandField.setEnabled(false);
         String lbl = "<html>" + "Настроить" + "<br>" + "утилиту"+ "</html>";
         utilSetBtn.setText(lbl);
+
         for (String item : speedTypes)
             speedBox.addItem(item);
         speedBox.setSelectedIndex(1);
 
-
+        //Open database settings window
         dbSetBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
             DataBaseSettings db = new DataBaseSettings();
             }
         });
 
+        //Open common setting window
         commonSetBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFrame db_settings = new JFrame("CommonSettings");
@@ -76,6 +77,8 @@ public class MainWindow extends JFrame {
                 db_settings.setVisible(true);
             }
         });
+
+        //Open file
         openFileBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFileChooser fileopen = new JFileChooser();
@@ -86,6 +89,8 @@ public class MainWindow extends JFrame {
                 }
             }
         });
+
+        //Set/unset command
         commandCheckBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent itemEvent) {
                 if (itemEvent.getStateChange()==1) {
@@ -98,6 +103,8 @@ public class MainWindow extends JFrame {
                 }
             }
         });
+
+        //Save project
         saveProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFileChooser fileChooser = new JFileChooser();
@@ -108,6 +115,8 @@ public class MainWindow extends JFrame {
                 }
             }
         });
+
+        //Open project
         openProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFileChooser fileopen = new JFileChooser();
@@ -118,30 +127,14 @@ public class MainWindow extends JFrame {
                 }
             }
         });
+
+        //New project
         newProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
 
-
-
             }
         });
-        progsList.addListSelectionListener(new ListSelectionListener() {
-            public void valueChanged(ListSelectionEvent listSelectionEvent) {
-                int index = progsList.getSelectedIndex();
-                switch (index){
-                    case 0:
-                        util_type = UTIL_TYPE.UT_ZMAP_ONLY;
-                        break;
-                    case 1:
-                        //zmapSet.setVisible(true);
-                        break;
-                    case 2:
-                        break;
-                    case 3:
-                        break;
-                }
-            }
-        });
+
         startBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 String result;
@@ -149,19 +142,35 @@ public class MainWindow extends JFrame {
                 if (commandCheckBox.isSelected()){
                     result = executionManager.ExecuteCommand(commandField.getText());
                 } else {
+                    util_type = GetRequestedUtil(progsList);
                     Map <String, String> params = new HashMap <String, String>();
-                    ZmapParams zmapParams = new ZmapParams();
-                    zmapParams.AddZmapParam("-B " ,
+                    String zmap_path = "zmap";
+                    ZmapParams zmapParams = new ZmapParams(zmap_path);
+                    zmapParams.AddZmapParam("-B" ,
                             speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex()));
-                    zmapParams.AddZmapParam("-p ", portsField.getText());
-                    zmapParams.AddZmapParam("-n ", addrNumberField.getText());
-                    zmapParams.AddZmapParam("-T ", threadsField.getText());
+                    zmapParams.AddZmapParam("-p", portsField.getText());
+                    zmapParams.AddZmapParam("-n", addrNumberField.getText());
+                    zmapParams.AddZmapParam("-T", threadsField.getText());
                     result = executionManager.ExecuteUtils(util_type, zmapParams);
                 }
                 outputArea.append(result);
                 outputArea.append("Finished\n\n");
             }
         });
+    }
+
+    public UTIL_TYPE GetRequestedUtil(JList progsList){
+        int index = progsList.getSelectedIndex();
+        UTIL_TYPE util_type;
+        switch (index){
+            case 0:
+                util_type = UTIL_TYPE.UT_ZMAP_ONLY;
+                break;
+            default:
+                util_type = UTIL_TYPE.UT_INVALID;
+                break;
+        }
+    return util_type;
     }
 
 }
