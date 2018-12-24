@@ -1,4 +1,4 @@
-package z_wizard;
+package z_wizard.gui;
 
 import javax.swing.*;
 import java.awt.*;

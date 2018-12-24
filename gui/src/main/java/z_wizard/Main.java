@@ -1,4 +1,6 @@
-import gui.MainWindow;
+package z_wizard;
+
+import z_wizard.gui.MainWindow;
 
 import javax.swing.*;
 import java.awt.*;

@@ -1,15 +1,20 @@
-package z_wizard;
+package z_wizard.gui;
 
+import z_wizard.UTIL_TYPE;
 import z_wizard.controllers.ExecutionManager;
 import z_wizard.containers.ZmapParams;
+import z_wizard.gui.DataBaseSettings;
+import z_wizard.project.JsonParser;
+import z_wizard.project.ProjectParams;
 
+import javax.rmi.CORBA.Util;
 import javax.swing.*;
-import javax.swing.event.ListSelectionEvent;
-import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 public class MainWindow extends JFrame {
@@ -44,6 +49,7 @@ public class MainWindow extends JFrame {
     private UTIL_TYPE util_type = UTIL_TYPE.UT_INVALID;
     private String progs[] = { "Zmap only" ,"Ztag", "Zgrab" , "Zdns" };
     private String speedTypes[] = {"k", "M"};
+    private String zmapKeys[] = {"-B", "-p", "-n", "-T"};
     ExecutionManager executionManager;
 
     public MainWindow() {
@@ -112,6 +118,13 @@ public class MainWindow extends JFrame {
                 int ret = fileChooser.showSaveDialog(openFileBtn);
                 if (ret == JFileChooser.APPROVE_OPTION){
                     File file = fileChooser.getSelectedFile();
+                    ProjectParams project = new ProjectParams("Test project v0.1");
+                    String speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
+                    ZmapParams zmapParams = new ZmapParams("zmap");
+                    zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
+                            addrNumberField.getText(), threadsField.getText(), fileNameField.getText());
+                    project.setZmapParams(zmapParams);
+                    JsonParser.ProjectToJson(project, file);
                 }
             }
         });
@@ -124,6 +137,8 @@ public class MainWindow extends JFrame {
                 if (ret == JFileChooser.APPROVE_OPTION) {
                     File file = fileopen.getSelectedFile();
                     fileNameField.setText(file.getAbsolutePath());
+                    ProjectParams params = JsonParser.JsonToProject(file);
+                    FillFormWithParams(params);
                 }
             }
         });
@@ -143,14 +158,16 @@ public class MainWindow extends JFrame {
                     result = executionManager.ExecuteCommand(commandField.getText());
                 } else {
                     util_type = GetRequestedUtil(progsList);
+                    if (util_type == UTIL_TYPE.UT_INVALID)
+                        util_type = UTIL_TYPE.UT_ZMAP_ONLY;
                     Map <String, String> params = new HashMap <String, String>();
                     String zmap_path = "zmap";
                     ZmapParams zmapParams = new ZmapParams(zmap_path);
-                    zmapParams.AddZmapParam("-B" ,
-                            speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex()));
-                    zmapParams.AddZmapParam("-p", portsField.getText());
-                    zmapParams.AddZmapParam("-n", addrNumberField.getText());
-                    zmapParams.AddZmapParam("-T", threadsField.getText());
+                    String speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
+                    zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
+                            addrNumberField.getText(), threadsField.getText(), fileNameField.getText());
+                    if (toFileCheckBox.isSelected())
+                        zmapParams.AddZmapParam("-o", fileNameField.getText());
                     result = executionManager.ExecuteUtils(util_type, zmapParams);
                 }
                 outputArea.append(result);
@@ -171,6 +188,25 @@ public class MainWindow extends JFrame {
                 break;
         }
     return util_type;
+    }
+
+    public void FillFormWithParams(ProjectParams params){
+        String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o"};
+        List<String> zmapParams = new LinkedList<String>();
+        for (String key : zmapKeys){
+            String param = params.getZmapParams().GetZmapParam(key);
+            zmapParams.add(param);
+        }
+        if (zmapParams.get(0).contains("M"))
+            speedBox.setSelectedIndex(1);
+        else if (zmapParams.get(0).contains("k"))
+            speedBox.setSelectedIndex(0);
+        String str  = zmapParams.get(0).substring(0,zmapParams.get(0).length() - 1);
+        speedField.setText(str);
+        portsField.setText(zmapParams.get(1));
+        addrNumberField.setText(zmapParams.get(2));
+        threadsField.setText(zmapParams.get(3));
+        fileNameField.setText(zmapParams.get(4));
     }
 
 }

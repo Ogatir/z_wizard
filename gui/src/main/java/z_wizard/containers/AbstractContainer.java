@@ -1,6 +1,6 @@
-package gui.containers;
+package z_wizard.containers;
 
-import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 public abstract class AbstractContainer {
@@ -8,18 +8,12 @@ public abstract class AbstractContainer {
     Map <String, String> util_params_list;
 
     public  AbstractContainer(){
+        zmap_params_list = new HashMap<String, String>();
+        util_params_list = new HashMap<String, String>();
+    }
+
+    public void Initialize(String keys[], String ... params ){
 
     }
 
-    public void AddZmapParam(String param_type, String param){
-        if (!param.equals("")) {
-            zmap_params_list.put(param_type, param);
-        }
-    }
-
-    public String GetZmapParam(String param_name){
-        if (zmap_params_list.containsKey(param_name))
-            return zmap_params_list.get(param_name);
-        else return null;
-    }
 }

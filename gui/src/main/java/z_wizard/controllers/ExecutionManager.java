@@ -1,53 +1,77 @@
-package gui.controllers;
+package z_wizard.controllers;
 
-import gui.UTIL_TYPE;
-import gui.containers.AbstractContainer;
-import gui.containers.ZmapParams;
+import z_wizard.UTIL_TYPE;
+import z_wizard.containers.AbstractContainer;
+import z_wizard.containers.ZmapParams;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.List;
-import java.util.Vector;
 
 public class ExecutionManager {
 
     private ZmapExecutor zmapExecutor;
-    private String zmapKeys[] = {"-B", "-p", "-n", "-T"};
+    private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o"};
     public ExecutionManager() {
         zmapExecutor = new ZmapExecutor();
     }
 
-    public String ExecuteUtils(UTIL_TYPE util_type, AbstractContainer params_container) {
+    public String ExecuteUtils(UTIL_TYPE util_type, ZmapParams zmapParams) {
 
         String execute_params = zmapExecutor.getZmapPath();
         switch (util_type){
             case UT_INVALID:
                 break;
             case UT_ZMAP_ONLY:
-                ZmapParams zmapParams = (ZmapParams) params_container;
                 for (String key : zmapKeys){
                     String param = zmapParams.GetZmapParam(key);
-                    if (param != null){
-                        execute_params += key;
-                        execute_params += param;
+                    if (param != null && param.length()!=0){
+                        execute_params += " " + key;
+                        execute_params += " " + param;
                     }
                 }
                 break;
-            case   UT_ZGRAB:
-                break;
         }
-
-        String result = "";
+        String result = "Executing " + execute_params + "\n";
         try {
-            Process proc = Runtime.getRuntime().exec(zmapExecutor.getZmapPath());
-            result = GetProcOutput(proc);
+            Process proc = Runtime.getRuntime().exec(execute_params);
+            result += GetProcOutput(proc);
         } catch (IOException e) {
             e.printStackTrace();
             e.getMessage();
         }
         return result;
     }
+
+    public String ExecuteUtils(UTIL_TYPE util_type, ZmapParams zmapParams, AbstractContainer params_container) {
+
+        String execute_params = zmapExecutor.getZmapPath();
+        switch (util_type){
+            case UT_INVALID:
+                break;
+            case UT_ZMAP_ONLY:;
+                for (String key : zmapKeys){
+                    String param = zmapParams.GetZmapParam(key);
+                    if (param != null){
+                        execute_params += " " + key;
+                        execute_params += " "+ param;
+                    }
+                }
+                break;
+            case   UT_ZGRAB:
+                break;
+        }
+        String result = "Executing " + execute_params + "\n";
+        try {
+            Process proc = Runtime.getRuntime().exec(execute_params);
+            result += GetProcOutput(proc);
+        } catch (IOException e) {
+            e.printStackTrace();
+            e.getMessage();
+        }
+        return result;
+    }
+
 
     public String ExecuteCommand(String command){
         String result = "";

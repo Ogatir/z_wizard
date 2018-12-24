@@ -1,4 +1,4 @@
-package gui.controllers;
+package z_wizard.controllers;
 
 public class ZmapExecutor {
 

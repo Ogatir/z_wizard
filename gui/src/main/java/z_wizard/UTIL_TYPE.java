@@ -1,4 +1,4 @@
-package gui;
+package z_wizard;
 
 public enum UTIL_TYPE {
     UT_INVALID,
