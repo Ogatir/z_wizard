@@ -3,7 +3,6 @@ package z_wizard.containers;
 public class ZmapParams extends AbstractContainer {
 
     private String zmap_path;
-    //private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o"};
     public ZmapParams(String path){
         zmap_path = path;
     }

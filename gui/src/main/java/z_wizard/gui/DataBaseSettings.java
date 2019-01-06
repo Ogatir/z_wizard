@@ -10,7 +10,7 @@ public class DataBaseSettings {
     private JPasswordField passwordField1;
     private JFormattedTextField formattedTextField1;
     private JTextField textField1;
-    private JButton подключитьКБДButton;
+    private JButton connectToButton;
     JFrame db_settings = new JFrame("Database Settings");
 
     public DataBaseSettings(){

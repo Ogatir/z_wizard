@@ -3,19 +3,14 @@ package z_wizard.gui;
 import z_wizard.UTIL_TYPE;
 import z_wizard.controllers.ExecutionManager;
 import z_wizard.containers.ZmapParams;
-import z_wizard.gui.DataBaseSettings;
 import z_wizard.project.JsonParser;
 import z_wizard.project.ProjectParams;
 
-import javax.rmi.CORBA.Util;
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class MainWindow extends JFrame {
     private JPanel mainPanel;
@@ -47,14 +42,13 @@ public class MainWindow extends JFrame {
     private JTextArea TextArea;
 
     private UTIL_TYPE util_type = UTIL_TYPE.UT_INVALID;
-    private String progs[] = { "Zmap only" ,"Ztag", "Zgrab" , "Zdns" };
+    private String progs[] = { "ZMap only" ,"ZGrab", "ZDns", "ZTag", "ZAnnotate" };
     private String speedTypes[] = {"k", "M"};
     private String zmapKeys[] = {"-B", "-p", "-n", "-T"};
     ExecutionManager executionManager;
 
     public MainWindow() {
         executionManager = new ExecutionManager();
-
         this.getContentPane().add(mainPanel);
         progsList.setListData(progs);
         commandField.setEnabled(false);
@@ -63,7 +57,7 @@ public class MainWindow extends JFrame {
 
         for (String item : speedTypes)
             speedBox.addItem(item);
-        speedBox.setSelectedIndex(1);
+        speedBox.setSelectedIndex(0);
 
         //Open database settings window
         dbSetBtn.addActionListener(new ActionListener() {
@@ -75,12 +69,7 @@ public class MainWindow extends JFrame {
         //Open common setting window
         commonSetBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                JFrame db_settings = new JFrame("CommonSettings");
-                db_settings.setPreferredSize(new Dimension(300,300));
-                db_settings.getContentPane();
-                db_settings.setLocationRelativeTo(null);
-                db_settings.pack();
-                db_settings.setVisible(true);
+               CommonSettings comm_settings = new CommonSettings();
             }
         });
 
@@ -122,7 +111,8 @@ public class MainWindow extends JFrame {
                     String speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
                     ZmapParams zmapParams = new ZmapParams("zmap");
                     zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
-                            addrNumberField.getText(), threadsField.getText(), fileNameField.getText());
+                            addrNumberField.getText(), threadsField.getText());
+                    zmapParams.AddZmapParam("-o", fileNameField.getText());
                     project.setZmapParams(zmapParams);
                     JsonParser.ProjectToJson(project, file);
                 }
@@ -153,19 +143,22 @@ public class MainWindow extends JFrame {
         startBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 String result;
-                outputArea.append("Starting:\n");
                 if (commandCheckBox.isSelected()){
                     result = executionManager.ExecuteCommand(commandField.getText());
                 } else {
                     util_type = GetRequestedUtil(progsList);
                     if (util_type == UTIL_TYPE.UT_INVALID)
                         util_type = UTIL_TYPE.UT_ZMAP_ONLY;
-                    Map <String, String> params = new HashMap <String, String>();
+                    if (CheckParams(util_type, outputArea))
+                        return;
                     String zmap_path = "zmap";
                     ZmapParams zmapParams = new ZmapParams(zmap_path);
-                    String speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
+                    outputArea.append("Starting:\n");
+                    String speedParam = "";
+                    if (!speedField.getText().equals(""))
+                        speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
                     zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
-                            addrNumberField.getText(), threadsField.getText(), fileNameField.getText());
+                            addrNumberField.getText(), threadsField.getText());
                     if (toFileCheckBox.isSelected())
                         zmapParams.AddZmapParam("-o", fileNameField.getText());
                     result = executionManager.ExecuteUtils(util_type, zmapParams);
@@ -174,14 +167,47 @@ public class MainWindow extends JFrame {
                 outputArea.append("Finished\n\n");
             }
         });
+
+        utilSetBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                switch (GetRequestedUtil(progsList)){
+                    case UT_ZGRAB:
+                        ZGrabSettings zGrabSettings = new ZGrabSettings();
+                        break;
+                    case UT_ZDNS:
+                        ZDnsSettings zdns = new ZDnsSettings();
+                        break;
+                    case UT_ZTAG:
+                        ZTagSettings ztag = new ZTagSettings();
+                        break;
+                    case UT_ZANNOTATE:
+                        ZAnnotateSettings zAnnotate = new ZAnnotateSettings();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        });
     }
 
-    public UTIL_TYPE GetRequestedUtil(JList progsList){
+    private UTIL_TYPE GetRequestedUtil(JList progsList){
         int index = progsList.getSelectedIndex();
         UTIL_TYPE util_type;
         switch (index){
             case 0:
                 util_type = UTIL_TYPE.UT_ZMAP_ONLY;
+                break;
+            case 1:
+                util_type = UTIL_TYPE.UT_ZGRAB;
+                break;
+            case 2:
+                util_type = UTIL_TYPE.UT_ZDNS;
+                break;
+            case 3:
+                util_type = UTIL_TYPE.UT_ZTAG;
+                break;
+            case 4:
+                util_type = UTIL_TYPE.UT_ZANNOTATE;
                 break;
             default:
                 util_type = UTIL_TYPE.UT_INVALID;
@@ -190,7 +216,7 @@ public class MainWindow extends JFrame {
     return util_type;
     }
 
-    public void FillFormWithParams(ProjectParams params){
+    private void FillFormWithParams(ProjectParams params){
         String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o"};
         List<String> zmapParams = new LinkedList<String>();
         for (String key : zmapKeys){
@@ -207,6 +233,33 @@ public class MainWindow extends JFrame {
         addrNumberField.setText(zmapParams.get(2));
         threadsField.setText(zmapParams.get(3));
         fileNameField.setText(zmapParams.get(4));
+    }
+
+    private boolean CheckParams(UTIL_TYPE type, JTextArea outputArea){
+
+        String errorMessage="";
+        boolean hasError = false;
+        switch (type){
+            case UT_ZMAP_ONLY:
+                if (portsField.getText().equals("")){
+                    errorMessage = "ОШИБКА: Введите номера портов для сканирования\n";
+                    hasError = true;
+                }
+                break;
+            case UT_ZGRAB:
+                break;
+            case UT_ZDNS:
+                break;
+            case UT_ZTAG:
+                break;
+            case UT_ZANNOTATE:
+                break;
+            default:
+                break;
+        }
+        if (hasError)
+            outputArea.append(errorMessage);
+        return hasError;
     }
 
 }

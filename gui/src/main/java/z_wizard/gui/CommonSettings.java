@@ -4,8 +4,15 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CommonSettings {
-    JFrame comm_settings = new JFrame("Настройки");
     private JPanel panel1;
+    private JButton saveButton;
+    private JButton cancelButton;
+    private JTextField zmapPathField;
+    private JTextField ZGrabPathField;
+    private JTextField ZDnsPathField;
+    private JTextField ZtagPathField;
+    private JTextField ZAnnotPathField;
+    JFrame comm_settings= new JFrame("Настройки");
 
     public CommonSettings(){
         comm_settings.setPreferredSize(new Dimension(400,300));
@@ -15,5 +22,9 @@ public class CommonSettings {
         comm_settings.setLocationRelativeTo(null);
         comm_settings.pack();
         comm_settings.setVisible(true);
+    }
+
+    private void createUIComponents() {
+        // TODO: place custom component creation code here
     }
 }

@@ -17,7 +17,6 @@ public class ExecutionManager {
     }
 
     public String ExecuteUtils(UTIL_TYPE util_type, ZmapParams zmapParams) {
-
         String execute_params = zmapExecutor.getZmapPath();
         switch (util_type){
             case UT_INVALID:
@@ -32,6 +31,7 @@ public class ExecutionManager {
                 }
                 break;
         }
+
         String result = "Executing " + execute_params + "\n";
         try {
             Process proc = Runtime.getRuntime().exec(execute_params);
@@ -84,6 +84,7 @@ public class ExecutionManager {
         }
         return result;
     }
+
     private String GetProcOutput(Process proc) throws IOException{
         BufferedReader reader =
                 new BufferedReader(new InputStreamReader(proc.getInputStream()));
