@@ -2,8 +2,9 @@ package z_wizard.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
-public class ZTagSettings {
+public class ZTagSettings implements ICrossFormable{
 
     JFrame zTag = new JFrame("Настройки ZTag");
     private JPanel panel1;
@@ -21,4 +22,9 @@ public class ZTagSettings {
         zTag.pack();
         zTag.setVisible(true);
     }
+
+    public HashMap<String, String> GetParams() {
+        return null;
+    }
+
 }

@@ -2,8 +2,9 @@ package z_wizard.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
-public class ZAnnotateSettings {
+public class ZAnnotateSettings implements ICrossFormable{
 
     JFrame zAnnotate = new JFrame("Настройки ZAnnotate");
     private JPanel panel1;
@@ -17,4 +18,9 @@ public class ZAnnotateSettings {
         zAnnotate.pack();
         zAnnotate.setVisible(true);
     }
+
+    public HashMap<String, String> GetParams() {
+        return null;
+    }
+
 }

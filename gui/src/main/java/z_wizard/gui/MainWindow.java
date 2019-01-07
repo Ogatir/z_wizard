@@ -1,17 +1,18 @@
 package z_wizard.gui;
 
 import z_wizard.UTIL_TYPE;
-import z_wizard.controllers.ExecutionManager;
+import z_wizard.executors.ExecutionManager;
 import z_wizard.containers.ZMapParams;
 import z_wizard.project.JsonParser;
 import z_wizard.project.ProjectParams;
 
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class MainWindow extends JFrame {
     private JPanel mainPanel;
@@ -42,11 +43,17 @@ public class MainWindow extends JFrame {
     private JTextField threadsField;
     private JTextArea TextArea;
 
-    private UTIL_TYPE util_type = UTIL_TYPE.UT_INVALID;
+
     private String progs[] = { "ZMap only" ,"ZGrab", "ZDns", "ZTag", "ZAnnotate" };
     private String speedTypes[] = {"k", "M"};
     private String zmapKeys[] = {"-B", "-p", "-n", "-T"};
-    ExecutionManager executionManager;
+    private UTIL_TYPE util_type = UTIL_TYPE.UT_INVALID;
+    private ZGrabSettings zGrabSettings;
+    private ZDnsSettings zdns;
+    private ZTagSettings ztag;
+    private ZAnnotateSettings zAnnotate;
+    private DataBaseSettings db;
+    private ExecutionManager executionManager;
 
     public MainWindow() {
         executionManager = new ExecutionManager();
@@ -58,7 +65,6 @@ public class MainWindow extends JFrame {
         for (String item : speedTypes)
             speedBox.addItem(item);
         speedBox.setSelectedIndex(0);
-
         //Open database settings window
         dbSetBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
@@ -168,16 +174,16 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 switch (GetRequestedUtil(progsList)){
                     case UT_ZGRAB:
-                        ZGrabSettings zGrabSettings = new ZGrabSettings();
+                        zGrabSettings = new ZGrabSettings();
                         break;
                     case UT_ZDNS:
-                        ZDnsSettings zdns = new ZDnsSettings();
+                        zdns = new ZDnsSettings();
                         break;
                     case UT_ZTAG:
-                        ZTagSettings ztag = new ZTagSettings();
+                        ztag = new ZTagSettings();
                         break;
                     case UT_ZANNOTATE:
-                        ZAnnotateSettings zAnnotate = new ZAnnotateSettings();
+                        zAnnotate = new ZAnnotateSettings();
                         break;
                     default:
                         break;

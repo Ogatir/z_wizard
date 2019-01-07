@@ -5,8 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.HashMap;
 
-public class ZDnsSettings {
+public class ZDnsSettings implements ICrossFormable{
 
     JFrame zdnsSet = new JFrame("Настройки ZDns");
     private JPanel panel1;
@@ -35,4 +36,9 @@ public class ZDnsSettings {
             }
         });
     }
+
+    public HashMap<String, String> GetParams() {
+        return null;
+    }
+
 }

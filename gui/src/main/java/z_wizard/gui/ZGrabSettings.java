@@ -5,8 +5,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.util.HashMap;
 
-public class ZGrabSettings {
+public class ZGrabSettings implements ICrossFormable{
 
     JFrame zgrabSet = new JFrame("Настройки ZGrab");
     private JPanel panel1;
@@ -34,4 +35,9 @@ public class ZGrabSettings {
             }
         });
     }
+
+    public HashMap<String, String> GetParams() {
+        return null;
+    }
+
 }

@@ -1,13 +1,13 @@
-package z_wizard.controllers;
+package z_wizard.executors;
 
 import z_wizard.containers.ZMapParams;
 
-public class ZmapExecutor {
+public class ZMapExecutor {
 
     private String zmapPath;
     private String executionParams;
 
-    public ZmapExecutor(){ zmapPath = "zmap"; }
+    public ZMapExecutor(){ zmapPath = "zmap"; }
 
     public void setZmapPath(String zmapPath) { this.zmapPath = zmapPath; }
     public String getZmapPath() { return zmapPath; }

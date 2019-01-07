@@ -1,4 +1,4 @@
-package z_wizard.controllers;
+package z_wizard.executors;
 
 import z_wizard.UTIL_TYPE;
 import z_wizard.containers.AbstractContainer;
@@ -10,10 +10,10 @@ import java.io.InputStreamReader;
 
 public class ExecutionManager {
 
-    private ZmapExecutor zmapExecutor;
+    private ZMapExecutor ZMapExecutor;
     private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o"};
     public ExecutionManager() {
-        zmapExecutor = new ZmapExecutor();
+        ZMapExecutor = new ZMapExecutor();
     }
 
     public String ExecuteUtils(UTIL_TYPE util_type, ZMapParams zmapParams) {
@@ -22,9 +22,9 @@ public class ExecutionManager {
             case UT_INVALID:
                 break;
             case UT_ZMAP_ONLY:
-                zmapExecutor.setZmapPath(zmapParams.GetUtilPath());
-                zmapExecutor.addExecutionParam(zmapKeys, zmapParams);
-                execute_params += zmapExecutor.getExecutionParams();
+                ZMapExecutor.setZmapPath(zmapParams.GetUtilPath());
+                ZMapExecutor.addExecutionParam(zmapKeys, zmapParams);
+                execute_params += ZMapExecutor.getExecutionParams();
                 break;
         }
 
@@ -39,15 +39,11 @@ public class ExecutionManager {
         return result;
     }
 
-    public String ExecuteUtils(UTIL_TYPE util_type, ZMapParams zmapParams, AbstractContainer params_container) {
+    public String ExecuteUtils(UTIL_TYPE util_type, AbstractContainer params_containers[]) {
 
-        String execute_params = zmapExecutor.getZmapPath();
+        String execute_params = ZMapExecutor.getZmapPath();
         switch (util_type){
             case UT_INVALID:
-                break;
-            case UT_ZMAP_ONLY:
-                zmapExecutor.setZmapPath(zmapParams.GetUtilPath());
-                execute_params += zmapExecutor.getExecutionParams();
                 break;
             case UT_ZGRAB:
                 break;

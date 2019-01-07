@@ -2,8 +2,9 @@ package z_wizard.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.HashMap;
 
-public class CommonSettings {
+public class CommonSettings implements ICrossFormable {
     private JPanel panel1;
     private JButton saveButton;
     private JButton cancelButton;
@@ -22,6 +23,10 @@ public class CommonSettings {
         comm_settings.setLocationRelativeTo(null);
         comm_settings.pack();
         comm_settings.setVisible(true);
+    }
+
+    public HashMap<String, String> GetParams() {
+        return null;
     }
 
     private void createUIComponents() {
