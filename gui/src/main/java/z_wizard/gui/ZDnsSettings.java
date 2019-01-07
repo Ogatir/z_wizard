@@ -2,11 +2,18 @@ package z_wizard.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
 public class ZDnsSettings {
 
     JFrame zdnsSet = new JFrame("Настройки ZDns");
     private JPanel panel1;
+    private JTextField recordTypeField;
+    private JTextField addrField;
+    private JTextField fileNameField;
+    private JButton saveFileBtn;
 
     public ZDnsSettings(){
         zdnsSet.setPreferredSize(new Dimension(400,300));
@@ -16,5 +23,16 @@ public class ZDnsSettings {
         zdnsSet.setLocationRelativeTo(null);
         zdnsSet.pack();
         zdnsSet.setVisible(true);
+
+        saveFileBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                JFileChooser fileopen = new JFileChooser();
+                int ret = fileopen.showDialog(null, "Выбрать файл");
+                if (ret == JFileChooser.APPROVE_OPTION) {
+                    File file = fileopen.getSelectedFile();
+                    fileNameField.setText(file.getAbsolutePath());
+                }
+            }
+        });
     }
 }

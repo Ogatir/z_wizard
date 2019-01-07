@@ -1,11 +1,11 @@
 package z_wizard.project;
 
-import z_wizard.containers.ZmapParams;
+import z_wizard.containers.ZMapParams;
 
 public class ProjectParams {
 
     private String projectName;
-    private ZmapParams zmapParams;
+    private ZMapParams zmapParams;
 
     public ProjectParams (String name){
         projectName = name;
@@ -13,6 +13,6 @@ public class ProjectParams {
 
     public String getProjectName(){ return projectName; }
 
-    public ZmapParams getZmapParams(){ return zmapParams; }
-    public void setZmapParams(ZmapParams zmapParams){ this.zmapParams = zmapParams; }
+    public ZMapParams getZmapParams(){ return zmapParams; }
+    public void setZmapParams(ZMapParams zmapParams){ this.zmapParams = zmapParams; }
 }

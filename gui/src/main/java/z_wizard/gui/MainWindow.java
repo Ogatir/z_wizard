@@ -2,11 +2,12 @@ package z_wizard.gui;
 
 import z_wizard.UTIL_TYPE;
 import z_wizard.controllers.ExecutionManager;
-import z_wizard.containers.ZmapParams;
+import z_wizard.containers.ZMapParams;
 import z_wizard.project.JsonParser;
 import z_wizard.project.ProjectParams;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
 import java.util.LinkedList;
@@ -54,7 +55,6 @@ public class MainWindow extends JFrame {
         commandField.setEnabled(false);
         String lbl = "<html>" + "Настроить" + "<br>" + "утилиту"+ "</html>";
         utilSetBtn.setText(lbl);
-
         for (String item : speedTypes)
             speedBox.addItem(item);
         speedBox.setSelectedIndex(0);
@@ -65,13 +65,9 @@ public class MainWindow extends JFrame {
             DataBaseSettings db = new DataBaseSettings();
             }
         });
-
         //Open common setting window
         commonSetBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) {
-               CommonSettings comm_settings = new CommonSettings();
-            }
-        });
+            public void actionPerformed(ActionEvent actionEvent) { CommonSettings comm_settings = new CommonSettings(); }});
 
         //Open file
         openFileBtn.addActionListener(new ActionListener() {
@@ -88,7 +84,7 @@ public class MainWindow extends JFrame {
         //Set/unset command
         commandCheckBox.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent itemEvent) {
-                if (itemEvent.getStateChange()==1) {
+                if (itemEvent.getStateChange()== ItemEvent.SELECTED) {
                     commandField.setEnabled(true);
                     zmapSet.setEnabled(false);
                 }
@@ -109,7 +105,7 @@ public class MainWindow extends JFrame {
                     File file = fileChooser.getSelectedFile();
                     ProjectParams project = new ProjectParams("Test project v0.1");
                     String speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
-                    ZmapParams zmapParams = new ZmapParams("zmap");
+                    ZMapParams zmapParams = new ZMapParams("zmap");
                     zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
                             addrNumberField.getText(), threadsField.getText());
                     zmapParams.AddZmapParam("-o", fileNameField.getText());
@@ -152,7 +148,7 @@ public class MainWindow extends JFrame {
                     if (CheckParams(util_type, outputArea))
                         return;
                     String zmap_path = "zmap";
-                    ZmapParams zmapParams = new ZmapParams(zmap_path);
+                    ZMapParams zmapParams = new ZMapParams(zmap_path);
                     outputArea.append("Starting:\n");
                     String speedParam = "";
                     if (!speedField.getText().equals(""))

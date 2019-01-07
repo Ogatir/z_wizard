@@ -2,7 +2,7 @@ package z_wizard.controllers;
 
 import z_wizard.UTIL_TYPE;
 import z_wizard.containers.AbstractContainer;
-import z_wizard.containers.ZmapParams;
+import z_wizard.containers.ZMapParams;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -16,19 +16,15 @@ public class ExecutionManager {
         zmapExecutor = new ZmapExecutor();
     }
 
-    public String ExecuteUtils(UTIL_TYPE util_type, ZmapParams zmapParams) {
-        String execute_params = zmapExecutor.getZmapPath();
+    public String ExecuteUtils(UTIL_TYPE util_type, ZMapParams zmapParams) {
+        String execute_params="";
         switch (util_type){
             case UT_INVALID:
                 break;
             case UT_ZMAP_ONLY:
-                for (String key : zmapKeys){
-                    String param = zmapParams.GetZmapParam(key);
-                    if (param != null && param.length()!=0){
-                        execute_params += " " + key;
-                        execute_params += " " + param;
-                    }
-                }
+                zmapExecutor.setZmapPath(zmapParams.GetUtilPath());
+                zmapExecutor.addExecutionParam(zmapKeys, zmapParams);
+                execute_params += zmapExecutor.getExecutionParams();
                 break;
         }
 
@@ -43,22 +39,23 @@ public class ExecutionManager {
         return result;
     }
 
-    public String ExecuteUtils(UTIL_TYPE util_type, ZmapParams zmapParams, AbstractContainer params_container) {
+    public String ExecuteUtils(UTIL_TYPE util_type, ZMapParams zmapParams, AbstractContainer params_container) {
 
         String execute_params = zmapExecutor.getZmapPath();
         switch (util_type){
             case UT_INVALID:
                 break;
-            case UT_ZMAP_ONLY:;
-                for (String key : zmapKeys){
-                    String param = zmapParams.GetZmapParam(key);
-                    if (param != null){
-                        execute_params += " " + key;
-                        execute_params += " "+ param;
-                    }
-                }
+            case UT_ZMAP_ONLY:
+                zmapExecutor.setZmapPath(zmapParams.GetUtilPath());
+                execute_params += zmapExecutor.getExecutionParams();
                 break;
-            case   UT_ZGRAB:
+            case UT_ZGRAB:
+                break;
+            case UT_ZDNS:
+                break;
+            case UT_ZTAG:
+                break;
+            case UT_ZANNOTATE:
                 break;
         }
         String result = "Executing " + execute_params + "\n";
