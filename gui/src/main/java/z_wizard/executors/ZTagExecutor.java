@@ -11,9 +11,9 @@ public class ZTagExecutor {
     public void setzTagPath(String zmapPath) { this.zTagPath = zmapPath; }
     public String getzTagPath() { return zTagPath; }
 
-    public void addExecutionParam(String zmapParams[], ZTagParams params){
+    public void addExecutionParam(String zTagParams[], ZTagParams params){
         executionParams = zTagPath;
-        for (String key : zmapParams){
+        for (String key : zTagParams){
             String param = params.GetZTagParam(key);
             if (param != null && param.length()!=0){
                 executionParams += " " + key;

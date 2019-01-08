@@ -3,11 +3,15 @@ package z_wizard.containers;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ZMapParams extends AbstractContainer {
+public class ZMapOutputParams extends AbstractContainer {
 
-    public ZMapParams(String path){
-          super(path);
-      }
+    public ZMapOutputParams(String path){
+        super(path);
+    }
+
+
+    public ZMapOutputParams(){
+    }
 
     @Override
     public void Initialize(String keys[], String ... params) {
@@ -17,16 +21,20 @@ public class ZMapParams extends AbstractContainer {
         }
     }
 
-    public void AddZmapParam(String param_type, String param){
+    public void AddZmapOutputParam(String param_type, String param){
         params_list.put(param_type, param);
     }
-    public void AddZmapParam(Map<String, String> newParams){
+    public void AddZmapOutputParam(Map<String, String> newParams){
         params_list.putAll(newParams);
     }
 
-    public String GetZmapParam(String param_name){
+    public String GetZmapOutputParam(String param_name){
         if (params_list.containsKey(param_name))
             return params_list.get(param_name);
         else return null;
+    }
+
+    public Map<String, String> GetZmapOutputParamMap(){
+        return params_list;
     }
 }

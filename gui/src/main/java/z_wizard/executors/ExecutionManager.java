@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 public class ExecutionManager {
 
     private ZMapExecutor ZMapExecutor;
-    private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o"};
+    private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o", "-f"};
     public ExecutionManager() {
         ZMapExecutor = new ZMapExecutor();
     }
@@ -39,7 +39,7 @@ public class ExecutionManager {
         return result;
     }
 
-    public String ExecuteUtils(UTIL_TYPE util_type, AbstractContainer params_containers[]) {
+    public String ExecuteUtils(UTIL_TYPE util_type, AbstractContainer paramContainers[]) {
 
         String execute_params = ZMapExecutor.getZmapPath();
         switch (util_type){

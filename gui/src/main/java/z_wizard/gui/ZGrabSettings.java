@@ -1,5 +1,7 @@
 package z_wizard.gui;
 
+import z_wizard.containers.AbstractContainer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -36,8 +38,7 @@ public class ZGrabSettings implements ICrossFormable{
         });
     }
 
-    public HashMap<String, String> GetParams() {
-        return null;
-    }
+    public void SaveParams(AbstractContainer container) {
 
+    }
 }

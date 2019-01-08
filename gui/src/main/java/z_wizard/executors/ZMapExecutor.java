@@ -2,6 +2,8 @@ package z_wizard.executors;
 
 import z_wizard.containers.ZMapParams;
 
+import java.util.HashMap;
+
 public class ZMapExecutor {
 
     private String zmapPath;

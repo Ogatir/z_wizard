@@ -10,9 +10,9 @@ public class ZDnsExecutor {
     public void setzDnsPath(String zmapPath) { this.zDnsPath = zmapPath; }
     public String getzDnsPath() { return zDnsPath; }
 
-    public void addExecutionParam(String zmapParams[], ZDnsParams params){
+    public void addExecutionParam(String zDnsParams[], ZDnsParams params){
         executionParams = zDnsPath;
-        for (String key : zmapParams){
+        for (String key : zDnsParams){
             String param = params.GetZDnsParam(key);
             if (param != null && param.length()!=0){
                 executionParams += " " + key;

@@ -10,9 +10,9 @@ public class ZAnnotateExecutor {
     public void setzTagPath(String zmapPath) { this.zAnnotatePath = zmapPath; }
     public String getzTagPath() { return zAnnotatePath; }
 
-    public void addExecutionParam(String zmapParams[], ZAnnotateParams params){
+    public void addExecutionParam(String zAnnotateParams[], ZAnnotateParams params){
         executionParams = zAnnotatePath;
-        for (String key : zmapParams){
+        for (String key : zAnnotateParams){
             String param = params.GetZAnnotateParam(key);
             if (param != null && param.length()!=0){
                 executionParams += " " + key;

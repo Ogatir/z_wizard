@@ -1,9 +1,11 @@
 package z_wizard.gui;
 
+import z_wizard.containers.AbstractContainer;
+
 import javax.swing.*;
 import java.awt.*;
 
-public class DataBaseSettings {
+public class DataBaseSettings implements ICrossFormable{
     private JPanel panel1;
     private JButton saveBtn;
     private JButton cancelBtn;
@@ -21,5 +23,9 @@ public class DataBaseSettings {
         db_settings.setLocationRelativeTo(null);
         db_settings.pack();
         db_settings.setVisible(true);
+    }
+
+    public void SaveParams(AbstractContainer container) {
+
     }
 }

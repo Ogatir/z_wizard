@@ -11,9 +11,9 @@ public class ZGrabExecutor {
     public void setzGrabPath(String zmapPath) { this.zGrabPath = zmapPath; }
     public String getzGrabPath() { return zGrabPath; }
 
-    public void addExecutionParam(String zmapParams[], ZGrabParams params){
+    public void addExecutionParam(String zGrabParams[], ZGrabParams params){
         executionParams = zGrabPath;
-        for (String key : zmapParams){
+        for (String key : zGrabParams){
             String param = params.GetZGrabParam(key);
             if (param != null && param.length()!=0){
                 executionParams += " " + key;

@@ -1,6 +1,7 @@
 package z_wizard.gui;
 
 import z_wizard.UTIL_TYPE;
+import z_wizard.containers.ZMapOutputParams;
 import z_wizard.executors.ExecutionManager;
 import z_wizard.containers.ZMapParams;
 import z_wizard.project.JsonParser;
@@ -41,6 +42,8 @@ public class MainWindow extends JFrame {
     private JTextField speedField;
     private JComboBox speedBox;
     private JTextField threadsField;
+    private JButton outputFieldsBtn;
+    private JCheckBox outputFieldsCheck;
     private JTextArea TextArea;
 
 
@@ -53,13 +56,16 @@ public class MainWindow extends JFrame {
     private ZTagSettings ztag;
     private ZAnnotateSettings zAnnotate;
     private DataBaseSettings db;
+    private ZMapOutputs zMapOutputs;
     private ExecutionManager executionManager;
 
+    private ZMapOutputParams zMapOutputParams;
     public MainWindow() {
         executionManager = new ExecutionManager();
         this.getContentPane().add(mainPanel);
         progsList.setListData(progs);
         commandField.setEnabled(false);
+        outputFieldsBtn.setEnabled(false);
         String lbl = "<html>" + "Настроить" + "<br>" + "утилиту"+ "</html>";
         utilSetBtn.setText(lbl);
         for (String item : speedTypes)
@@ -145,26 +151,31 @@ public class MainWindow extends JFrame {
         startBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 String result;
+
                 if (commandCheckBox.isSelected()){
                     result = executionManager.ExecuteCommand(commandField.getText());
-                } else {
-                    util_type = GetRequestedUtil(progsList);
-                    if (util_type == UTIL_TYPE.UT_INVALID)
-                        util_type = UTIL_TYPE.UT_ZMAP_ONLY;
-                    if (CheckParams(util_type, outputArea))
-                        return;
-                    String zmap_path = "zmap";
-                    ZMapParams zmapParams = new ZMapParams(zmap_path);
-                    outputArea.append("Starting:\n");
-                    String speedParam = "";
-                    if (!speedField.getText().equals(""))
-                        speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
-                    zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
-                            addrNumberField.getText(), threadsField.getText());
-                    if (toFileCheckBox.isSelected())
-                        zmapParams.AddZmapParam("-o", fileNameField.getText());
-                    result = executionManager.ExecuteUtils(util_type, zmapParams);
+                    outputArea.append(result);
+                    outputArea.append("Finished\n\n");
+                    return;
                 }
+                util_type = GetRequestedUtil(progsList);
+                if (util_type == UTIL_TYPE.UT_INVALID)
+                    util_type = UTIL_TYPE.UT_ZMAP_ONLY;
+                if (CheckParams(util_type, outputArea))
+                    return;
+                String zmap_path = "zmap";
+                ZMapParams zmapParams = new ZMapParams(zmap_path);
+                outputArea.append("Starting:\n");
+                String speedParam = "";
+                if (!speedField.getText().equals(""))
+                    speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
+                zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
+                        addrNumberField.getText(), threadsField.getText());
+                if (toFileCheckBox.isSelected())
+                    zmapParams.AddZmapParam("-o", fileNameField.getText());
+                if (outputFieldsCheck.isSelected())
+                    zmapParams.AddZmapParam(zMapOutputParams.GetZmapOutputParamMap());
+                result = executionManager.ExecuteUtils(util_type, zmapParams);
                 outputArea.append(result);
                 outputArea.append("Finished\n\n");
             }
@@ -188,6 +199,22 @@ public class MainWindow extends JFrame {
                     default:
                         break;
                 }
+            }
+        });
+        outputFieldsCheck.addItemListener(new ItemListener() {
+            public void itemStateChanged(ItemEvent itemEvent) {
+                if (itemEvent.getStateChange()== ItemEvent.SELECTED)
+                    outputFieldsBtn.setEnabled(true);
+                else
+                    outputFieldsBtn.setEnabled(false);
+            }
+        });
+
+        outputFieldsBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                zMapOutputParams = new ZMapOutputParams();
+                zMapOutputs = new ZMapOutputs(zMapOutputParams);
+               // zMapOutputs.SaveParams(zMapOutputParams);
             }
         });
     }

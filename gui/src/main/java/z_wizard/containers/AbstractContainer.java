@@ -12,6 +12,10 @@ public abstract class AbstractContainer {
         utilPath = path;
     }
 
+    public AbstractContainer(){
+        params_list = new HashMap<String, String>();
+    }
+
     public void Initialize(String keys[], String ... params ){
 
     }

@@ -1,5 +1,7 @@
 package z_wizard.gui;
 
+import z_wizard.containers.AbstractContainer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.HashMap;
@@ -23,8 +25,8 @@ public class ZTagSettings implements ICrossFormable{
         zTag.setVisible(true);
     }
 
-    public HashMap<String, String> GetParams() {
-        return null;
+    public void SaveParams(AbstractContainer container) {
+
     }
 
 }
