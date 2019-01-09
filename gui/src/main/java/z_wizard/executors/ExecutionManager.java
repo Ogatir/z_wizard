@@ -11,7 +11,7 @@ import java.io.InputStreamReader;
 public class ExecutionManager {
 
     private ZMapExecutor ZMapExecutor;
-    private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o", "-f"};
+    private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o", "-f", "--output-fields"};
     public ExecutionManager() {
         ZMapExecutor = new ZMapExecutor();
     }

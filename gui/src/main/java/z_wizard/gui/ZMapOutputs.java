@@ -29,9 +29,9 @@ public class ZMapOutputs implements ICrossFormable {
     private String addrParams = "saddr,saddr-raw,daddr,daddr-raw,ipid,";
     private String ttl = "ttl,";
     private String classific = "classification,";
-    private String tcpParams = "sport, dport, seqnum, acknum, window,";
-    private String flagsParams = "success, repeat, cooldown,";
-    private String timestapmParams = "timestamp-str, timestamp-ts, timestamp-us,";
+    private String tcpParams = "sport,dport,seqnum,acknum,window,";
+    private String flagsParams = "success,repeat,cooldown,";
+    private String timestapmParams = "timestamp-str,timestamp-ts,timestamp-us,";
     private ZMapOutputParams params;
 
     ZMapOutputs(AbstractContainer container){
@@ -100,22 +100,27 @@ public class ZMapOutputs implements ICrossFormable {
         Map<String, String> result = new HashMap<String, String>();
         String value ="";
         if (fullBtn.isSelected())
-            value += String.format("%s, %s, %s, %s, %s, %s, %s",
+            value += String.format("%s,%s,%s,%s,%s,%s",
                     addrParams, ttl, classific, tcpParams, flagsParams, timestapmParams);
+            //            value += "=*";
+//            result.put("--output-fields", value);
+//            params.AddZmapOutputParam(result);
+//            return;
+//        }
+
 
         if (addrBtn.isSelected())
-            value += " " + addrParams;
+            value += addrParams;
         if (ttlBtn.isSelected())
-            value += " " + ttl;
+            value += ttl;
         if (classificBtn.isSelected())
-            value += " " + classific;
+            value += classific;
         if (tcpBtn.isSelected())
-            value += " " + tcpParams;
+            value += tcpParams;
         if (flagsBtn.isSelected())
-            value += " " + flagsParams;
+            value += flagsParams;
         if (timestamps.isSelected())
-            value += " " + timestapmParams;
-        //value += "\"";
+            value += timestapmParams;
         result.put("-f", value);
 
         params.AddZmapOutputParam(result);
