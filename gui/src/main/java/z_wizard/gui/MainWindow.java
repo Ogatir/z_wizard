@@ -193,7 +193,7 @@ public class MainWindow extends JFrame {
                         zGrabSettings = new ZGrabSettings();
                         break;
                     case UT_ZDNS:
-                        String zDnsPath = "~/go/src/github.com/zmap/zdns/zdns";
+                        String zDnsPath = "~/go/src/github.com/zmap/zdns/zdns/zdns";
                         zDnsParams = new ZDnsParams(zDnsPath);
                         zdns = new ZDnsSettings(zDnsParams);
                         break;
