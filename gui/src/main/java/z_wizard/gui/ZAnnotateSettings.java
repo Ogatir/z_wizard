@@ -18,10 +18,14 @@ public class ZAnnotateSettings implements ICrossFormable{
         zAnnotate.getContentPane();
         zAnnotate.setLocationRelativeTo(null);
         zAnnotate.pack();
-        zAnnotate.setVisible(true);
+
     }
 
     public void SaveParams(AbstractContainer container) {
 
+    }
+
+    public void Show(AbstractContainer container) {
+        zAnnotate.setVisible(true);
     }
 }

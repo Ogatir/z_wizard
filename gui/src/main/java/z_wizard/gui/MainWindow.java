@@ -53,13 +53,14 @@ public class MainWindow extends JFrame {
     private String speedTypes[] = {"k", "M"};
     private String zmapKeys[] = {"-B", "-p", "-n", "-T"};
     private UTIL_TYPE util_type = UTIL_TYPE.UT_INVALID;
-    private ZGrabSettings zGrabSettings;
-    private ZDnsSettings zdns;
-    private ZTagSettings ztag;
-    private ZAnnotateSettings zAnnotate;
-    private DataBaseSettings db;
-    private ZMapOutputs zMapOutputs;
+    private ZGrabSettings zGrabSettings = new ZGrabSettings();
+    private ZDnsSettings zdns = new ZDnsSettings();
+    private ZTagSettings ztag = new ZTagSettings();
+    private ZAnnotateSettings zAnnotate = new ZAnnotateSettings();
+    private DataBaseSettings db = new DataBaseSettings();
+    private ZMapOutputs zMapOutputs = new ZMapOutputs();
     private ExecutionManager executionManager;
+    private CommonSettings comm_settings = new CommonSettings();
 
     private ZMapOutputParams zMapOutputParams;
     private ZDnsParams zDnsParams;
@@ -82,7 +83,7 @@ public class MainWindow extends JFrame {
         });
         //Open common setting window
         commonSetBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) { CommonSettings comm_settings = new CommonSettings(); }});
+            public void actionPerformed(ActionEvent actionEvent) { /*comm_settings.Show();*/ }});
 
         //Open file
         openFileBtn.addActionListener(new ActionListener() {
@@ -195,7 +196,7 @@ public class MainWindow extends JFrame {
                     case UT_ZDNS:
                         String zDnsPath = "/home/skorodub/go/src/github.com/zmap/zdns/zdns/zdns";
                         zDnsParams = new ZDnsParams(zDnsPath);
-                        zdns = new ZDnsSettings(zDnsParams);
+                        zdns.Show(zDnsParams);
                         break;
                     case UT_ZTAG:
                         ztag = new ZTagSettings();
@@ -220,7 +221,7 @@ public class MainWindow extends JFrame {
         outputFieldsBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 zMapOutputParams = new ZMapOutputParams();
-                zMapOutputs = new ZMapOutputs(zMapOutputParams);
+                zMapOutputs.Show(zMapOutputParams);
             }
         });
     }

@@ -22,11 +22,14 @@ public class ZTagSettings implements ICrossFormable{
         zTag.getContentPane();
         zTag.setLocationRelativeTo(null);
         zTag.pack();
-        zTag.setVisible(true);
+
     }
 
     public void SaveParams(AbstractContainer container) {
 
     }
 
+    public void Show(AbstractContainer container) {
+        zTag.setVisible(true);
+    }
 }

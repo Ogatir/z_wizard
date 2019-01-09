@@ -8,4 +8,5 @@ import java.util.HashMap;
 public interface ICrossFormable {
 
     void SaveParams(AbstractContainer container);
+    void Show(AbstractContainer container);
 }

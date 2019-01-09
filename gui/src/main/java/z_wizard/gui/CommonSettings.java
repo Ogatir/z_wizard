@@ -24,11 +24,15 @@ public class CommonSettings implements ICrossFormable {
         comm_settings.getContentPane();
         comm_settings.setLocationRelativeTo(null);
         comm_settings.pack();
-        comm_settings.setVisible(true);
+
     }
 
     public void SaveParams(AbstractContainer container) {
 
+    }
+
+    public void Show(AbstractContainer container){
+        comm_settings.setVisible(true);
     }
 
     private void createUIComponents() {

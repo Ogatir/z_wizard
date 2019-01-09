@@ -26,16 +26,16 @@ public class ZDnsSettings implements ICrossFormable{
 
     private ZDnsParams params;
 
-    public ZDnsSettings(AbstractContainer container){
+    public ZDnsSettings(){
         zdnsSet.setPreferredSize(new Dimension(400,300));
         zdnsSet.add(panel1);
         zdnsSet.setTitle("Настройки ZDns");
         zdnsSet.getContentPane();
         zdnsSet.setLocationRelativeTo(null);
         zdnsSet.pack();
-        zdnsSet.setVisible(true);
 
-        params = (ZDnsParams) container;
+
+
 
         for (String module : moduleTypes)
             moduleField.addItem(module);
@@ -69,5 +69,11 @@ public class ZDnsSettings implements ICrossFormable{
             result.put("--output-file", fileNameField.getText());
 
         params.AddZDnsOutputParam(result);
+    }
+
+    public void Show(AbstractContainer container) {
+        params = (ZDnsParams) container;
+        zdnsSet.setVisible(true);
+
     }
 }

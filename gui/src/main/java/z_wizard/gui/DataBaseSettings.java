@@ -22,10 +22,14 @@ public class DataBaseSettings implements ICrossFormable{
         db_settings.getContentPane();
         db_settings.setLocationRelativeTo(null);
         db_settings.pack();
-        db_settings.setVisible(true);
+
     }
 
     public void SaveParams(AbstractContainer container) {
 
+    }
+
+    public void Show(AbstractContainer container) {
+        db_settings.setVisible(true);
     }
 }

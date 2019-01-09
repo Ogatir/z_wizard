@@ -16,6 +16,8 @@ public class ZGrabSettings implements ICrossFormable{
     private JTextField portField;
     private JTextField fileNameField;
     private JButton selectFileBtn;
+    private JTextField sourceFileField;
+    private JButton sourceFileBtn;
 
     public ZGrabSettings(){
         zgrabSet.setPreferredSize(new Dimension(500,300));
@@ -24,7 +26,7 @@ public class ZGrabSettings implements ICrossFormable{
         zgrabSet.getContentPane();
         zgrabSet.setLocationRelativeTo(null);
         zgrabSet.pack();
-        zgrabSet.setVisible(true);
+
 
         selectFileBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
@@ -36,9 +38,23 @@ public class ZGrabSettings implements ICrossFormable{
                 }
             }
         });
+        sourceFileBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                JFileChooser fileopen = new JFileChooser();
+                int ret = fileopen.showDialog(null, "Выбрать файл");
+                if (ret == JFileChooser.APPROVE_OPTION) {
+                    File file = fileopen.getSelectedFile();
+                    sourceFileField.setText(file.getAbsolutePath());
+                }
+            }
+        });
     }
 
     public void SaveParams(AbstractContainer container) {
 
+    }
+
+    public void Show(AbstractContainer container) {
+        zgrabSet.setVisible(true);
     }
 }

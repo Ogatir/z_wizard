@@ -32,16 +32,13 @@ public class ZMapOutputs implements ICrossFormable {
     private String timestapmParams = "timestamp-str,timestamp-ts,timestamp-us,";
     private ZMapOutputParams params;
 
-    ZMapOutputs(AbstractContainer container){
+    ZMapOutputs(){
         zMapOutputs.setPreferredSize(new Dimension(350,300));
         zMapOutputs.add(panel1);
         zMapOutputs.setTitle("Настройки вывода ZMap");
         zMapOutputs.getContentPane();
         zMapOutputs.setLocationRelativeTo(null);
         zMapOutputs.pack();
-        zMapOutputs.setVisible(true);
-
-        params = (ZMapOutputParams) container;
 
         fullBtn.addItemListener(new ItemListener() {
             public void itemStateChanged(ItemEvent itemEvent) {
@@ -116,5 +113,11 @@ public class ZMapOutputs implements ICrossFormable {
         result.put("-f", value);
 
         params.AddZmapOutputParam(result);
+    }
+
+    public void Show(AbstractContainer container) {
+        params = (ZMapOutputParams) container;
+        zMapOutputs.setVisible(true);
+
     }
 }
