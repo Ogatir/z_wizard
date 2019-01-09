@@ -1,5 +1,7 @@
 package z_wizard.containers;
 
+import java.util.Map;
+
 public class ZDnsParams extends AbstractContainer {
 
     public ZDnsParams(String path){
@@ -16,6 +18,9 @@ public class ZDnsParams extends AbstractContainer {
 
     public void AddZDnsParam(String param_type, String param){
         params_list.put(param_type, param);
+    }
+    public void AddZDnsOutputParam(Map<String, String> newParams){
+        params_list.putAll(newParams);
     }
 
     public String GetZDnsParam(String param_name){

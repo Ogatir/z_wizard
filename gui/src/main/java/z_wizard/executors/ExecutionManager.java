@@ -2,6 +2,7 @@ package z_wizard.executors;
 
 import z_wizard.UTIL_TYPE;
 import z_wizard.containers.AbstractContainer;
+import z_wizard.containers.ZDnsParams;
 import z_wizard.containers.ZMapParams;
 
 import java.io.BufferedReader;
@@ -10,10 +11,13 @@ import java.io.InputStreamReader;
 
 public class ExecutionManager {
 
-    private ZMapExecutor ZMapExecutor;
+    private ZMapExecutor zMapExecutor;
+    private ZDnsExecutor zDnsExecutor;
     private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o", "-f", "--output-fields"};
+    private String zDnsKeys[] = {"page", "module", "--output-file"};
     public ExecutionManager() {
-        ZMapExecutor = new ZMapExecutor();
+        zMapExecutor = new ZMapExecutor();
+        zDnsExecutor = new ZDnsExecutor();
     }
 
     public String ExecuteUtils(UTIL_TYPE util_type, ZMapParams zmapParams) {
@@ -22,9 +26,9 @@ public class ExecutionManager {
             case UT_INVALID:
                 break;
             case UT_ZMAP_ONLY:
-                ZMapExecutor.setZmapPath(zmapParams.GetUtilPath());
-                ZMapExecutor.addExecutionParam(zmapKeys, zmapParams);
-                execute_params += ZMapExecutor.getExecutionParams();
+                zMapExecutor.setZmapPath(zmapParams.GetUtilPath());
+                zMapExecutor.addExecutionParam(zmapKeys, zmapParams);
+                execute_params += zMapExecutor.getExecutionParams();
                 break;
         }
 
@@ -41,13 +45,17 @@ public class ExecutionManager {
 
     public String ExecuteUtils(UTIL_TYPE util_type, AbstractContainer paramContainers[]) {
 
-        String execute_params = ZMapExecutor.getZmapPath();
+        String execute_params =""; //zMapExecutor.getZmapPath();
         switch (util_type){
             case UT_INVALID:
                 break;
             case UT_ZGRAB:
                 break;
             case UT_ZDNS:
+                ZDnsParams zDnsParams = (ZDnsParams) paramContainers[0];
+                zDnsExecutor.setzDnsPath(zDnsParams.GetUtilPath());
+                zDnsExecutor.addExecutionParam(zDnsKeys, zDnsParams);
+                execute_params += zDnsExecutor.getExecutionParams();
                 break;
             case UT_ZTAG:
                 break;

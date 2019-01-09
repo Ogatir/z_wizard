@@ -15,7 +15,8 @@ public class ZDnsExecutor {
         for (String key : zDnsParams){
             String param = params.GetZDnsParam(key);
             if (param != null && param.length()!=0){
-                executionParams += " " + key;
+                if (param.charAt(0) == '-')
+                    executionParams += " " + key;
                 executionParams += " " + param;
             }
         }

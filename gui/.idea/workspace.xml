@@ -11,8 +11,12 @@
   <component name="ChangeListManager">
     <list default="true" id="5672a2ee-049e-4662-b407-3bc8a5d4d104" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/z_wizard/z_wizard.jar" beforeDir="false" afterPath="$PROJECT_DIR$/out/artifacts/z_wizard/z_wizard.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZDnsParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZDnsParams.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZDnsExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZDnsExecutor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZMapOutputs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZMapOutputs.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,8 +36,8 @@
       <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="175" selection-start-line="175" selection-end-line="175" />
+            <state relative-caret-position="99">
+              <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -44,74 +48,29 @@
       <file leaf-file-name="ExecutionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
-              <folding>
-                <element signature="e#410#411#0" expanded="true" />
-                <element signature="e#459#460#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="54" column="37" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZMapExecutor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java">
+      <file leaf-file-name="ZDnsParams.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZDnsParams.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
+            <state relative-caret-position="44">
+              <caret line="21" column="66" lean-forward="true" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#639#640#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ZMapParams.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapParams.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
-              <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZMapOutputs.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ZMapOutputs.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZMapOutputs.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="262">
-              <caret line="106" column="48" lean-forward="true" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1659#2199#0" expanded="true" />
-                <element signature="e#2198#2199#0" expanded="true" />
-                <element signature="e#2234#2461#0" expanded="true" />
-                <element signature="e#2460#2461#0" expanded="true" />
-                <element signature="e#2495#2647#0" expanded="true" />
-                <element signature="e#2646#2647#0" expanded="true" />
-                <element signature="e#2685#2837#0" expanded="true" />
-                <element signature="e#2836#2837#0" expanded="true" />
-                <element signature="e#2873#3025#0" expanded="true" />
-                <element signature="e#3024#3025#0" expanded="true" />
-                <element signature="e#3059#3211#0" expanded="true" />
-                <element signature="e#3210#3211#0" expanded="true" />
-                <element signature="e#3251#3403#0" expanded="true" />
-                <element signature="e#3402#3403#0" expanded="true" />
-                <element signature="e#3440#3589#0" expanded="true" />
-                <element signature="e#3588#3589#0" expanded="true" />
-                <element signature="e#3705#3721#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZMapOutputParams.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapOutputParams.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+            <state relative-caret-position="164">
+              <caret line="117" column="17" lean-forward="true" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -119,17 +78,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AbstractContainer.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/AbstractContainer.java">
+      <file leaf-file-name="ZDnsExecutor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZDnsExecutor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="15" column="52" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
+            <state relative-caret-position="15">
+              <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainWindow.form" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.form">
+      <file leaf-file-name="ZDnsSettings.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1111#1556#0" expanded="true" />
+                <element signature="e#1555#1556#0" expanded="true" />
+                <element signature="e#1622#1765#0" expanded="true" />
+                <element signature="e#1764#1765#0" expanded="true" />
+                <element signature="e#1672#1688#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZDnsSettings.form" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.form">
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
@@ -171,11 +147,9 @@
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/UTIL_TYPE.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZmapParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZGrabParams.java" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZDnsParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZTagParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZTagSettings.form" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZAnnotateSettings.form" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.form" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZGrabSettings.form" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/controllers/ExecutionManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/controllers/ZmapExecutor.java" />
@@ -183,7 +157,6 @@
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZAnnotateParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZAnnotateExecutor.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZTagExecutor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZDnsExecutor.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZGrabExecutor.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZMapOutputs.form" />
@@ -191,16 +164,19 @@
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/DataBaseSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZTagSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZGrabSettings.java" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZAnnotateSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/AbstractContainer.java" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapOutputParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.form" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZMapOutputs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZDnsExecutor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.form" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZDnsParams.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java" />
       </list>
     </option>
   </component>
@@ -220,7 +196,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="137" />
     <option name="y" value="-45" />
     <option name="width" value="1238" />
@@ -232,6 +208,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -377,11 +355,10 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="AndroidView" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/ogatir/Progs/z_wizard/gui/src/main/java/z_wizard/gui/ZDnsSettings.java" />
     <property name="UI_DESIGNER_EDITOR_MODE.PaletteManager.WIDTH" value="161" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="255" />
     <property name="project.structure.last.edited" value="Project" />
@@ -504,18 +481,18 @@
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49657536" weight="0.28863636" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
       <window_info id="Structure" order="1" sideWeight="0.5017123" side_tool="true" weight="0.2659091" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info id="Favorites" order="5" sideWeight="0.50342464" side_tool="true" weight="0.27045456" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3989726" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.3989726" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32876712" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" id="Palette" order="3" />
@@ -567,37 +544,25 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZDnsExecutor.java</url>
+          <line>13</line>
+          <properties />
+          <option name="timeStamp" value="56" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java</url>
+          <line>54</line>
+          <properties />
+          <option name="timeStamp" value="57" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java</url>
-          <line>21</line>
+          <line>60</line>
           <properties />
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java</url>
-          <line>23</line>
-          <properties />
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java</url>
-          <line>32</line>
-          <properties />
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java</url>
-          <line>21</line>
-          <properties />
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java</url>
-          <line>175</line>
-          <properties />
-          <option name="timeStamp" value="53" />
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="54" />
+      <option name="time" value="60" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -712,24 +677,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZDnsParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="11" column="50" lean-forward="true" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/project/JsonParser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="99">
           <caret line="12" selection-start-line="12" selection-end-line="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/awt/event/ActionListener.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -751,6 +702,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="10" selection-start-line="12" selection-start-column="10" selection-end-line="12" selection-end-column="10" />
+          <folding>
+            <element signature="e#127#128#0" expanded="true" />
+            <element signature="e#154#155#0" expanded="true" />
+            <element signature="e#469#470#0" expanded="true" />
+            <element signature="e#519#520#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -765,13 +722,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="41" selection-start-line="14" selection-start-column="41" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZDnsExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="52" lean-forward="true" selection-start-line="15" selection-start-column="52" selection-end-line="15" selection-end-column="52" />
         </state>
       </provider>
     </entry>
@@ -812,9 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/javax/swing/JFrame.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="185">
@@ -846,6 +793,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" selection-start-line="24" selection-end-line="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -860,6 +810,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="450">
           <caret line="30" selection-start-line="30" selection-end-line="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -867,16 +820,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="42" selection-start-line="42" selection-end-line="42" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -890,10 +833,20 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapOutputParams.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/awt/event/ActionListener.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="19" column="48" selection-start-line="19" selection-start-column="48" selection-end-line="19" selection-end-column="48" />
+        <state relative-caret-position="105">
+          <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -902,35 +855,15 @@
     </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar!/org/GNOME/Accessibility/AtkWrapper.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="234">
-          <caret line="580" selection-start-line="580" selection-end-line="580" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="175" selection-start-line="175" selection-end-line="175" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="279">
+          <caret line="373" selection-start-line="373" selection-end-line="373" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapParams.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
-          <caret line="22" column="29" selection-start-line="22" selection-start-column="29" selection-end-line="22" selection-end-column="29" />
+        <state>
+          <caret column="28" lean-forward="true" selection-start-column="28" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -939,38 +872,71 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="9" lean-forward="true" selection-start-line="9" selection-end-line="9" />
+        <state relative-caret-position="165">
+          <caret line="54" column="37" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="99">
+          <caret line="56" column="22" selection-start-line="56" selection-start-column="22" selection-end-line="56" selection-end-column="22" />
           <folding>
-            <element signature="e#410#411#0" expanded="true" />
-            <element signature="e#459#460#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZDnsExecutor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="10" column="52" lean-forward="true" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapOutputParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="97">
+          <caret line="26" column="4" selection-start-line="26" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#677#678#0" expanded="true" />
+            <element signature="e#722#723#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZMapOutputs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="262">
-          <caret line="106" column="48" lean-forward="true" selection-start-line="106" selection-start-column="48" selection-end-line="106" selection-end-column="48" />
+        <state relative-caret-position="164">
+          <caret line="117" column="17" lean-forward="true" selection-start-line="117" selection-start-column="17" selection-end-line="117" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1659#2199#0" expanded="true" />
-            <element signature="e#2198#2199#0" expanded="true" />
-            <element signature="e#2234#2461#0" expanded="true" />
-            <element signature="e#2460#2461#0" expanded="true" />
-            <element signature="e#2495#2647#0" expanded="true" />
-            <element signature="e#2646#2647#0" expanded="true" />
-            <element signature="e#2685#2837#0" expanded="true" />
-            <element signature="e#2836#2837#0" expanded="true" />
-            <element signature="e#2873#3025#0" expanded="true" />
-            <element signature="e#3024#3025#0" expanded="true" />
-            <element signature="e#3059#3211#0" expanded="true" />
-            <element signature="e#3210#3211#0" expanded="true" />
-            <element signature="e#3251#3403#0" expanded="true" />
-            <element signature="e#3402#3403#0" expanded="true" />
-            <element signature="e#3440#3589#0" expanded="true" />
-            <element signature="e#3588#3589#0" expanded="true" />
-            <element signature="e#3705#3721#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZDnsParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="21" column="66" lean-forward="true" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+          <folding>
+            <element signature="e#639#640#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1111#1556#0" expanded="true" />
+            <element signature="e#1555#1556#0" expanded="true" />
+            <element signature="e#1622#1765#0" expanded="true" />
+            <element signature="e#1764#1765#0" expanded="true" />
+            <element signature="e#1672#1688#0" expanded="true" />
           </folding>
         </state>
       </provider>

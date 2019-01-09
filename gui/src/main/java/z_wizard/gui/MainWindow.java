@@ -1,6 +1,8 @@
 package z_wizard.gui;
 
 import z_wizard.UTIL_TYPE;
+import z_wizard.containers.AbstractContainer;
+import z_wizard.containers.ZDnsParams;
 import z_wizard.containers.ZMapOutputParams;
 import z_wizard.executors.ExecutionManager;
 import z_wizard.containers.ZMapParams;
@@ -60,6 +62,7 @@ public class MainWindow extends JFrame {
     private ExecutionManager executionManager;
 
     private ZMapOutputParams zMapOutputParams;
+    private ZDnsParams zDnsParams;
     public MainWindow() {
         executionManager = new ExecutionManager();
         this.getContentPane().add(mainPanel);
@@ -150,7 +153,7 @@ public class MainWindow extends JFrame {
 
         startBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-                String result;
+                String result="";
 
                 if (commandCheckBox.isSelected()){
                     result = executionManager.ExecuteCommand(commandField.getText());
@@ -163,19 +166,21 @@ public class MainWindow extends JFrame {
                     util_type = UTIL_TYPE.UT_ZMAP_ONLY;
                 if (CheckParams(util_type, outputArea))
                     return;
-                String zmap_path = "zmap";
-                ZMapParams zmapParams = new ZMapParams(zmap_path);
                 outputArea.append("Starting:\n");
-                String speedParam = "";
-                if (!speedField.getText().equals(""))
-                    speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
-                zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
-                        addrNumberField.getText(), threadsField.getText());
-                if (toFileCheckBox.isSelected())
-                    zmapParams.AddZmapParam("-o", fileNameField.getText());
-                if (outputFieldsCheck.isSelected())
-                    zmapParams.AddZmapParam(zMapOutputParams.GetZmapOutputParamMap());
-                result = executionManager.ExecuteUtils(util_type, zmapParams);
+                switch (util_type){
+                    case UT_ZMAP_ONLY:
+                        ZMapParams zmapParams = PrepareZmapParams();
+                        result = executionManager.ExecuteUtils(util_type, zmapParams);
+                        break;
+                    case UT_ZDNS:
+                        AbstractContainer container[] = new AbstractContainer[1];
+                        container[0] = zDnsParams;
+                        result = executionManager.ExecuteUtils(util_type, container);
+                        break;
+                }
+
+
+
                 outputArea.append(result);
                 outputArea.append("Finished\n\n");
             }
@@ -188,7 +193,9 @@ public class MainWindow extends JFrame {
                         zGrabSettings = new ZGrabSettings();
                         break;
                     case UT_ZDNS:
-                        zdns = new ZDnsSettings();
+                        String zDnsPath = "~/go/src/github.com/zmap/zdns/zdns";
+                        zDnsParams = new ZDnsParams(zDnsPath);
+                        zdns = new ZDnsSettings(zDnsParams);
                         break;
                     case UT_ZTAG:
                         ztag = new ZTagSettings();
@@ -214,7 +221,6 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 zMapOutputParams = new ZMapOutputParams();
                 zMapOutputs = new ZMapOutputs(zMapOutputParams);
-               // zMapOutputs.SaveParams(zMapOutputParams);
             }
         });
     }
@@ -290,5 +296,21 @@ public class MainWindow extends JFrame {
             outputArea.append(errorMessage);
         return hasError;
     }
+
+    private ZMapParams PrepareZmapParams(){
+        String zmap_path = "zmap";
+        ZMapParams zmapParams = new ZMapParams(zmap_path);
+        String speedParam = "";
+        if (!speedField.getText().equals(""))
+            speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
+        zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
+                addrNumberField.getText(), threadsField.getText());
+        if (toFileCheckBox.isSelected())
+            zmapParams.AddZmapParam("-o", fileNameField.getText());
+        if (outputFieldsCheck.isSelected())
+            zmapParams.AddZmapParam(zMapOutputParams.GetZmapOutputParamMap());
+        return zmapParams;
+    }
+
 
 }
