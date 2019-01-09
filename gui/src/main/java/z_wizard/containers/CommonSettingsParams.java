@@ -2,10 +2,9 @@ package z_wizard.containers;
 
 import java.util.Map;
 
-public class ZGrabParams extends AbstractContainer{
+public class CommonSettingsParams  extends AbstractContainer{
 
-    public ZGrabParams(String path){
-        super(path);
+    public CommonSettingsParams(){
     }
 
     @Override
@@ -16,17 +15,16 @@ public class ZGrabParams extends AbstractContainer{
         }
     }
 
-    public void AddZGrabParam(String param_type, String param){
+    public void AddSettingsParam(String param_type, String param){
         params_list.put(param_type, param);
     }
-    public void AddZGrabParam(Map<String, String> newParams){
+    public void AddSettingsParam(Map<String, String> newParams){
         params_list.putAll(newParams);
     }
 
-    public String GetZGrabParam(String param_name){
+    public String GetSettingsParam(String param_name){
         if (params_list.containsKey(param_name))
             return params_list.get(param_name);
         else return null;
     }
-
 }

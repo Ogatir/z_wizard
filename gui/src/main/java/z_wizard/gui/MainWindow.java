@@ -1,11 +1,8 @@
 package z_wizard.gui;
 
 import z_wizard.UTIL_TYPE;
-import z_wizard.containers.AbstractContainer;
-import z_wizard.containers.ZDnsParams;
-import z_wizard.containers.ZMapOutputParams;
+import z_wizard.containers.*;
 import z_wizard.executors.ExecutionManager;
-import z_wizard.containers.ZMapParams;
 import z_wizard.project.JsonParser;
 import z_wizard.project.ProjectParams;
 
@@ -59,11 +56,14 @@ public class MainWindow extends JFrame {
     private ZAnnotateSettings zAnnotate = new ZAnnotateSettings();
     private DataBaseSettings db = new DataBaseSettings();
     private ZMapOutputs zMapOutputs = new ZMapOutputs();
-    private ExecutionManager executionManager;
     private CommonSettings comm_settings = new CommonSettings();
+
+    private ExecutionManager executionManager;
 
     private ZMapOutputParams zMapOutputParams;
     private ZDnsParams zDnsParams;
+    private ZGrabParams zGrabParams;
+    private CommonSettingsParams commonSettingsParams = new CommonSettingsParams();
     public MainWindow() {
         executionManager = new ExecutionManager();
         this.getContentPane().add(mainPanel);
@@ -78,12 +78,14 @@ public class MainWindow extends JFrame {
         //Open database settings window
         dbSetBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-            DataBaseSettings db = new DataBaseSettings();
+//            DataBaseSettings db = new DataBaseSettings();
             }
         });
         //Open common setting window
         commonSetBtn.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent actionEvent) { /*comm_settings.Show();*/ }});
+            public void actionPerformed(ActionEvent actionEvent) {
+                comm_settings.Show(commonSettingsParams);
+            }});
 
         //Open file
         openFileBtn.addActionListener(new ActionListener() {
@@ -179,9 +181,6 @@ public class MainWindow extends JFrame {
                         result = executionManager.ExecuteUtils(util_type, container);
                         break;
                 }
-
-
-
                 outputArea.append(result);
                 outputArea.append("Finished\n\n");
             }
@@ -191,7 +190,9 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 switch (GetRequestedUtil(progsList)){
                     case UT_ZGRAB:
-                        zGrabSettings = new ZGrabSettings();
+                        String zGrabPath = "/home/skorodub/go/src/github.com/zmap/zgrab/zgrab";
+                        zGrabParams = new ZGrabParams(zGrabPath);
+                        zGrabSettings.Show(zGrabParams);
                         break;
                     case UT_ZDNS:
                         String zDnsPath = "/home/skorodub/go/src/github.com/zmap/zdns/zdns/zdns";

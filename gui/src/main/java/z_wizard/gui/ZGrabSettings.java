@@ -1,6 +1,8 @@
 package z_wizard.gui;
 
 import z_wizard.containers.AbstractContainer;
+import z_wizard.containers.ZDnsParams;
+import z_wizard.containers.ZGrabParams;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +20,10 @@ public class ZGrabSettings implements ICrossFormable{
     private JButton selectFileBtn;
     private JTextField sourceFileField;
     private JButton sourceFileBtn;
+    private JTextArea addParamsArea;
+    private JButton saveBtn;
+
+    private ZGrabParams params;
 
     public ZGrabSettings(){
         zgrabSet.setPreferredSize(new Dimension(500,300));
@@ -55,6 +61,7 @@ public class ZGrabSettings implements ICrossFormable{
     }
 
     public void Show(AbstractContainer container) {
+        params = (ZGrabParams) container;
         zgrabSet.setVisible(true);
     }
 }

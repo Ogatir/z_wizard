@@ -34,9 +34,6 @@ public class ZDnsSettings implements ICrossFormable{
         zdnsSet.setLocationRelativeTo(null);
         zdnsSet.pack();
 
-
-
-
         for (String module : moduleTypes)
             moduleField.addItem(module);
 

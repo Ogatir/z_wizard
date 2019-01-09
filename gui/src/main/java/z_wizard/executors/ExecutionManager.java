@@ -11,11 +11,14 @@ public class ExecutionManager {
 
     private ZMapExecutor zMapExecutor;
     private ZDnsExecutor zDnsExecutor;
+    private ZGrabExecutor zGrabExecutor;
     private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o", "-f", "--output-fields"};
     private String zDnsKeys[] = {"page", "module", "--output-file"};
+
     public ExecutionManager() {
         zMapExecutor = new ZMapExecutor();
         zDnsExecutor = new ZDnsExecutor();
+        zGrabExecutor = new ZGrabExecutor();
     }
 
     public String ExecuteUtils(UTIL_TYPE util_type, ZMapParams zmapParams) {
