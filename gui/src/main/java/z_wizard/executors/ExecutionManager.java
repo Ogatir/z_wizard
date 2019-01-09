@@ -5,9 +5,7 @@ import z_wizard.containers.AbstractContainer;
 import z_wizard.containers.ZDnsParams;
 import z_wizard.containers.ZMapParams;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 public class ExecutionManager {
 
@@ -64,6 +62,14 @@ public class ExecutionManager {
         }
         String result = "Executing " + execute_params + "\n";
         try {
+            if (util_type == UTIL_TYPE.UT_ZDNS){
+                Process proc = Runtime.getRuntime().exec(execute_params);
+                BufferedWriter writer = new BufferedWriter( new OutputStreamWriter(proc.getOutputStream()));
+                writer.write(zDnsExecutor.getResourse());
+                writer.close();
+                result += GetProcOutput(proc);
+                return result;
+            }
             Process proc = Runtime.getRuntime().exec(execute_params);
             result += GetProcOutput(proc);
         } catch (IOException e) {
