@@ -48,20 +48,14 @@ public class CommonSettings implements ICrossFormable {
 
         if (!zmapPathField.getText().equals(""))
             result.put("zMapPath", zmapPathField.getText());
-       // else result.put("zMapPath", "zmap");
         if (!ZGrabPathField.getText().equals(""))
             result.put("zGrabPath", ZGrabPathField.getText());
-       // else result.put("zGrabPath", "/home/skorodub/go/src/github.com/zmap/zgrab/zgrab");
         if (!ZDnsPathField.getText().equals(""))
             result.put("zDnsPath", ZDnsPathField.getText());
-      //  else result.put("zDnsPath", "/home/skorodub/go/src/github.com/zmap/zdns/zdns/zdns");
         if (!ZtagPathField.getText().equals(""))
             result.put("zTagPath", ZtagPathField.getText());
-        //else result.put("zTagPath", "ztag");
         if (!ZAnnotPathField.getText().equals(""))
             result.put("zAnnotatePath", ZAnnotPathField.getText());
-       // else result.put("zAnnotatePath", );
-
         params.AddSettingsParam(result);
     }
 

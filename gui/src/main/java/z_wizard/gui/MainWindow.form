@@ -256,7 +256,7 @@
                 <constraints/>
                 <properties>
                   <doubleBuffered value="false"/>
-                  <editable value="true"/>
+                  <editable value="false"/>
                   <focusable value="true"/>
                   <name value=""/>
                   <text value=""/>

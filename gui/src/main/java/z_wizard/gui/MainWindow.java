@@ -190,13 +190,11 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 switch (GetRequestedUtil(progsList)){
                     case UT_ZGRAB:
-                        String zGrabPath = "/home/skorodub/go/src/github.com/zmap/zgrab/zgrab";
-                        zGrabParams = new ZGrabParams(zGrabPath);
+                        zGrabParams = new ZGrabParams(comm_settings.GetCurrentParams().get("zGrabPath"));
                         zGrabSettings.Show(zGrabParams);
                         break;
                     case UT_ZDNS:
-                        String zDnsPath = "/home/skorodub/go/src/github.com/zmap/zdns/zdns/zdns";
-                        zDnsParams = new ZDnsParams(zDnsPath);
+                        zDnsParams = new ZDnsParams(comm_settings.GetCurrentParams().get("zDnsPath"));
                         zdns.Show(zDnsParams);
                         break;
                     case UT_ZTAG:
@@ -300,8 +298,7 @@ public class MainWindow extends JFrame {
     }
 
     private ZMapParams PrepareZmapParams(){
-        String zmap_path = "zmap";
-        ZMapParams zmapParams = new ZMapParams(zmap_path);
+        ZMapParams zmapParams = new ZMapParams(comm_settings.GetCurrentParams().get("zMapPath"));
         String speedParam = "";
         if (!speedField.getText().equals(""))
             speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());

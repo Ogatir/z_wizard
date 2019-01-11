@@ -40,13 +40,14 @@ public class ExecutionManager {
         } catch (IOException e) {
             e.printStackTrace();
             e.getMessage();
+            result += e.getMessage() + '\n';
         }
         return result;
     }
 
     public String ExecuteUtils(UTIL_TYPE util_type, AbstractContainer paramContainers[]) {
 
-        String execute_params =""; //zMapExecutor.getZmapPath();
+        String execute_params ="";
         switch (util_type){
             case UT_INVALID:
                 break;
@@ -77,7 +78,7 @@ public class ExecutionManager {
             result += GetProcOutput(proc);
         } catch (IOException e) {
             e.printStackTrace();
-            e.getMessage();
+            result += e.getMessage() + '\n';
         }
         return result;
     }
@@ -91,6 +92,7 @@ public class ExecutionManager {
         } catch (IOException e) {
             e.printStackTrace();
             e.getMessage();
+            result += e.getMessage() + '\n';
         }
         return result;
     }
