@@ -5,6 +5,7 @@ import z_wizard.containers.*;
 import z_wizard.executors.ExecutionManager;
 import z_wizard.project.JsonParser;
 import z_wizard.project.ProjectParams;
+import z_wizard.project.ProjectSerializer;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -121,14 +122,13 @@ public class MainWindow extends JFrame {
                 int ret = fileChooser.showSaveDialog(openFileBtn);
                 if (ret == JFileChooser.APPROVE_OPTION){
                     File file = fileChooser.getSelectedFile();
-                    ProjectParams project = new ProjectParams("Test project v0.1");
-                    String speedParam = speedField.getText() + speedBox.getItemAt(speedBox.getSelectedIndex());
-                    ZMapParams zmapParams = new ZMapParams("zmap");
-                    zmapParams.Initialize(zmapKeys, speedParam, portsField.getText(),
-                            addrNumberField.getText(), threadsField.getText());
-                    zmapParams.AddZmapParam("-o", fileNameField.getText());
-                    project.setZmapParams(zmapParams);
-                    JsonParser.ProjectToJson(project, file);
+                    ProjectSerializer serializer = new ProjectSerializer("Test project v0.1");
+
+                    serializer.SerializeZMapParams(speedField, portsField, addrNumberField,
+                            threadsField, fileNameField, speedBox, comm_settings.GetCurrentParams().get("zMapPath"));
+                    serializer.SerializeCommonParams(comm_settings.GetComponents());
+                    serializer.SerializeZDnsParams(zdns.GetComponents(), comm_settings.GetCurrentParams().get("zDnsPath"));
+                    JsonParser.ProjectToJson(serializer.getProjectParams(), file);
                 }
             }
         });
@@ -253,6 +253,8 @@ public class MainWindow extends JFrame {
 
     private void FillFormWithParams(ProjectParams params){
         String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o"};
+        String pathKeys[] = {"zmapPathField", "ZGrabPathField", "ZDnsPathField", "ZtagPathField", "ZAnnotPathField"};
+        String ZDnskeys[] = {"moduleField", "addrField", "fileNameField"};
         List<String> zmapParams = new LinkedList<String>();
         for (String key : zmapKeys){
             String param = params.getZmapParams().GetZmapParam(key);
@@ -268,6 +270,9 @@ public class MainWindow extends JFrame {
         addrNumberField.setText(zmapParams.get(2));
         threadsField.setText(zmapParams.get(3));
         fileNameField.setText(zmapParams.get(4));
+
+        comm_settings.SetParams(params.getCommonSettingsParams());
+        zdns.SetParams(params.getzDnsParams());
     }
 
     private boolean CheckParams(UTIL_TYPE type, JTextArea outputArea){

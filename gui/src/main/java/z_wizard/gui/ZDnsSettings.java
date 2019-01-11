@@ -1,6 +1,7 @@
 package z_wizard.gui;
 
 import z_wizard.containers.AbstractContainer;
+import z_wizard.containers.CommonSettingsParams;
 import z_wizard.containers.ZDnsParams;
 
 import javax.swing.*;
@@ -66,6 +67,17 @@ public class ZDnsSettings implements ICrossFormable{
             result.put("--output-file", fileNameField.getText());
 
         params.AddZDnsOutputParam(result);
+    }
+
+    public void SetParams (ZDnsParams zDnsParams){
+        moduleField.setSelectedItem(zDnsParams.GetZDnsParam("moduleField"));
+        addrField.setText(zDnsParams.GetZDnsParam("addrField"));
+        fileNameField.setText(zDnsParams.GetZDnsParam("fileNameField"));
+    }
+
+    public Component[] GetComponents(){
+        Component components[] = {moduleField, addrField, fileNameField};
+        return components;
     }
 
     public void Show(AbstractContainer container) {

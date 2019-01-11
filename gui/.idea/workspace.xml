@@ -10,22 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5672a2ee-049e-4662-b407-3bc8a5d4d104" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/CommonSettings.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/CommonSettings.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$5.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$6.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$6.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$7.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$7.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$8.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow$8.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/z_wizard/gui/MainWindow.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectParams.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -44,12 +34,43 @@
       <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="217" column="11" lean-forward="true" selection-start-line="217" selection-start-column="11" selection-end-line="217" selection-end-column="11" />
+            <state relative-caret-position="174">
+              <caret line="273" selection-start-line="273" selection-end-line="273" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#4348#5415#0" expanded="true" />
+                <element signature="e#5414#5415#0" expanded="true" />
                 <element signature="e#9040#9264#0" expanded="true" />
                 <element signature="e#9263#9264#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectSerializer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectSerializer.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="54" column="58" lean-forward="true" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#420#421#0" expanded="true" />
+                <element signature="e#471#472#0" expanded="true" />
+                <element signature="e#2497#2498#0" expanded="true" />
+                <element signature="e#2533#2534#0" expanded="true" />
+                <element signature="e#821#839#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectParams.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectParams.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding>
+                <element signature="method#setCommonSettingsParams#0;class#ProjectParams#0" />
               </folding>
             </state>
           </provider>
@@ -60,17 +81,29 @@
           <provider selected="true" editor-type-id="ui-designer" />
         </entry>
       </file>
-      <file leaf-file-name="CommonSettings.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CommonSettings.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="57" column="67" selection-start-line="57" selection-start-column="67" selection-end-line="57" selection-end-column="67" />
+            <state relative-caret-position="218">
+              <caret line="66" selection-start-line="66" selection-end-line="72" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1152#1301#0" expanded="true" />
                 <element signature="e#1300#1301#0" expanded="true" />
                 <element signature="e#1417#1433#0" expanded="true" />
                 <element signature="e#2478#2494#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZDnsSettings.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -84,7 +117,7 @@
       <file leaf-file-name="ExecutionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-608">
+            <state relative-caret-position="660">
               <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
             </state>
           </provider>
@@ -102,46 +135,13 @@
       <file leaf-file-name="ZMapParams.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapParams.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
+            <state relative-caret-position="105">
+              <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#166#167#0" expanded="true" />
+                <element signature="e#197#198#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZMapOutputParams.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapOutputParams.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#677#678#0" expanded="true" />
-                <element signature="e#722#723#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ZDnsSettings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CommonSettingsParams.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/CommonSettingsParams.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="26" column="47" selection-start-line="26" selection-start-column="47" selection-end-line="26" selection-end-column="47" />
             </state>
           </provider>
         </entry>
@@ -163,8 +163,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/controllers/ExecutionManager.java" />
-        <option value="$PROJECT_DIR$/src/main/java/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/MainWindow.form" />
         <option value="$PROJECT_DIR$/src/main/java/gui/controllers/ZmapExecutor.java" />
         <option value="$PROJECT_DIR$/src/main/java/gui/UTIL_TYPE.java" />
@@ -177,7 +175,6 @@
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/MainWindow.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/project/JsonParser.java" />
         <option value="$PROJECT_DIR$/TODO.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/DataBaseSettings.form" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.form" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/UTIL_TYPE.java" />
@@ -206,14 +203,17 @@
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZAnnotateSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/ZGrabParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZGrabSettings.form" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZGrabSettings.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/containers/CommonSettingsParams.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.form" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java" />
-        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectParams.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectSaver.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectSerializer.java" />
         <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java" />
+        <option value="$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java" />
       </list>
     </option>
   </component>
@@ -386,6 +386,15 @@
               <item name="gui" type="462c0819:PsiDirectoryNode" />
               <item name="ZTagSettings" type="e9f4de52:FormNode" />
             </path>
+            <path>
+              <item name="z_wizard" type="b2602c69:ProjectViewProjectNode" />
+              <item name="gui" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="z_wizard" type="462c0819:PsiDirectoryNode" />
+              <item name="project" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -513,12 +522,12 @@
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="right" id="Maven Projects" order="6" weight="0.32954547" />
       <window_info anchor="bottom" id="Version Control" order="8" weight="0.32876712" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.43835616" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.43835616" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32876712" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49657536" weight="0.28863636" />
-      <window_info id="Structure" order="1" sideWeight="0.5017123" side_tool="true" weight="0.2659091" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.494863" weight="0.28863636" />
+      <window_info id="Structure" order="1" sideWeight="0.50513697" side_tool="true" weight="0.28863636" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="5" />
@@ -551,7 +560,21 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="65" />
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java</url>
+          <line>273</line>
+          <properties />
+          <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="72" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="73" />
     </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
@@ -568,13 +591,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1155">
-          <caret line="77" column="18" lean-forward="true" selection-start-line="77" selection-start-column="18" selection-end-line="77" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.idea/compiler.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -630,13 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/java/awt/Container.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="82">
@@ -664,13 +673,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/javax/swing/JTextField.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
         </state>
       </provider>
     </entry>
@@ -749,13 +751,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="10" column="9" selection-start-line="10" selection-start-column="9" selection-end-line="10" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar!/org/GNOME/Accessibility/AtkWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="373" selection-start-line="373" selection-end-line="373" />
         </state>
       </provider>
     </entry>
@@ -856,9 +851,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.form">
-      <provider selected="true" editor-type-id="ui-designer" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapOutputParams.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="212">
@@ -871,33 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="54" column="5" selection-start-line="54" selection-start-column="5" selection-end-line="54" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapParams.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="26" column="18" selection-start-line="26" selection-start-column="18" selection-end-line="26" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-608">
-          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ZMapExecutor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -905,14 +870,77 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.form">
+      <provider selected="true" editor-type-id="ui-designer" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/executors/ExecutionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="217" column="11" lean-forward="true" selection-start-line="217" selection-start-column="11" selection-end-line="217" selection-end-column="11" />
+        <state relative-caret-position="660">
+          <caret line="49" column="34" selection-start-line="49" selection-start-column="34" selection-end-line="49" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/containers/ZMapParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#9040#9264#0" expanded="true" />
-            <element signature="e#9263#9264#0" expanded="true" />
+            <element signature="e#166#167#0" expanded="true" />
+            <element signature="e#197#198#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/rt.jar!/javax/swing/JTextField.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="57" column="22" lean-forward="true" selection-start-line="57" selection-start-column="22" selection-end-line="57" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar!/org/GNOME/Accessibility/AtkWrapper.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="580" selection-start-line="580" selection-end-line="580" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectParams.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="method#setCommonSettingsParams#0;class#ProjectParams#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/project/ProjectSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="54" column="58" lean-forward="true" selection-start-line="54" selection-start-column="58" selection-end-line="54" selection-end-column="58" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#420#421#0" expanded="true" />
+            <element signature="e#471#472#0" expanded="true" />
+            <element signature="e#2497#2498#0" expanded="true" />
+            <element signature="e#2533#2534#0" expanded="true" />
+            <element signature="e#821#839#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="218">
+          <caret line="66" selection-start-line="66" selection-end-line="72" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1152#1301#0" expanded="true" />
+            <element signature="e#1300#1301#0" expanded="true" />
+            <element signature="e#1417#1433#0" expanded="true" />
+            <element signature="e#2478#2494#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -920,16 +948,26 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.form">
       <provider selected="true" editor-type-id="ui-designer" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/CommonSettings.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="327">
-          <caret line="57" column="67" selection-start-line="57" selection-start-column="67" selection-end-line="57" selection-end-column="67" />
+        <state relative-caret-position="174">
+          <caret line="273" selection-start-line="273" selection-end-line="273" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1152#1301#0" expanded="true" />
-            <element signature="e#1300#1301#0" expanded="true" />
-            <element signature="e#1417#1433#0" expanded="true" />
-            <element signature="e#2478#2494#0" expanded="true" />
+            <element signature="e#4348#5415#0" expanded="true" />
+            <element signature="e#5414#5415#0" expanded="true" />
+            <element signature="e#9040#9264#0" expanded="true" />
+            <element signature="e#9263#9264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/z_wizard/gui/ZDnsSettings.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

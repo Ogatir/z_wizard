@@ -43,6 +43,11 @@ public class CommonSettings implements ICrossFormable {
         });
     }
 
+    public Component[] GetComponents(){
+        Component components[] = {zmapPathField, ZGrabPathField, ZDnsPathField, ZtagPathField, ZAnnotPathField};
+        return components;
+    }
+
     public void SaveParams(AbstractContainer container) {
         Map<String, String> result = new HashMap<String, String>();
 
@@ -57,6 +62,14 @@ public class CommonSettings implements ICrossFormable {
         if (!ZAnnotPathField.getText().equals(""))
             result.put("zAnnotatePath", ZAnnotPathField.getText());
         params.AddSettingsParam(result);
+    }
+
+    public void SetParams (CommonSettingsParams commonSettingsParams){
+        zmapPathField.setText(commonSettingsParams.GetSettingsParam("zmapPathField"));
+        ZGrabPathField.setText(commonSettingsParams.GetSettingsParam("ZGrabPathField"));
+        ZDnsPathField.setText(commonSettingsParams.GetSettingsParam("ZDnsPathField"));
+        ZtagPathField.setText(commonSettingsParams.GetSettingsParam("ZtagPathField"));
+        ZAnnotPathField.setText(commonSettingsParams.GetSettingsParam("ZAnnotPathField"));
     }
 
     public Map <String, String> GetCurrentParams(){
