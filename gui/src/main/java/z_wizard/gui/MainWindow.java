@@ -253,8 +253,6 @@ public class MainWindow extends JFrame {
 
     private void FillFormWithParams(ProjectParams params){
         String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o"};
-        String pathKeys[] = {"zmapPathField", "ZGrabPathField", "ZDnsPathField", "ZtagPathField", "ZAnnotPathField"};
-        String ZDnskeys[] = {"moduleField", "addrField", "fileNameField"};
         List<String> zmapParams = new LinkedList<String>();
         for (String key : zmapKeys){
             String param = params.getZmapParams().GetZmapParam(key);

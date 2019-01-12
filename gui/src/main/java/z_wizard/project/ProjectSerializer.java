@@ -6,17 +6,8 @@ import z_wizard.containers.ZMapParams;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.HashMap;
-import java.util.Map;
 
 public class ProjectSerializer {
-
-//    private Component[] mainWindowSettings;
-//    private Component[] commonSettingsWindow;
-//    private Component[] zDnsWindow;
-//    private Component[] zGrabWindow;
-//    private Component[] zTagWindow;
-//    private Component[] zAnnotateWindow;
 
     private ProjectParams projectParams;
 
@@ -62,23 +53,5 @@ public class ProjectSerializer {
     public ProjectParams getProjectParams() {
         return projectParams;
     }
-
-    private Map<String, Component>  createComponentMap(JPanel panel) {
-        Map<String, Component> componentMap = new HashMap<String,Component>();
-        Component[] components = panel.getComponents();
-        for (int i=0; i < components.length; i++) {
-            String name = components[i].getName();
-            componentMap.put(components[i].getName(), components[i]);
-        }
-        return componentMap;
-    }
-
-    private Component getComponentByName(String name, Map<String, Component> componentMap) {
-        if (componentMap.containsKey(name)) {
-            return (Component) componentMap.get(name);
-        }
-        else return null;
-    }
-
 
 }
