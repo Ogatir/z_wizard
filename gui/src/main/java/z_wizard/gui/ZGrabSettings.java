@@ -1,7 +1,6 @@
 package z_wizard.gui;
 
 import z_wizard.containers.AbstractContainer;
-import z_wizard.containers.ZDnsParams;
 import z_wizard.containers.ZGrabParams;
 
 import javax.swing.*;
@@ -10,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.HashMap;
+import java.util.Map;
 
 public class ZGrabSettings implements ICrossFormable{
 
@@ -33,7 +33,6 @@ public class ZGrabSettings implements ICrossFormable{
         zgrabSet.setLocationRelativeTo(null);
         zgrabSet.pack();
 
-
         selectFileBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFileChooser fileopen = new JFileChooser();
@@ -54,10 +53,34 @@ public class ZGrabSettings implements ICrossFormable{
                 }
             }
         });
+        saveBtn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent actionEvent) {
+                SaveParams(params);
+            }
+        });
     }
 
     public void SaveParams(AbstractContainer container) {
+        Map <String, String> result = new HashMap<String, String>();
 
+        result.put("--port", portField.getText());
+        if (!addParamsArea.getText().equals(""))
+            result.put("add-params", addParamsArea.getText());
+        result.put("--input-file", sourceFileField.getText());
+        result.put("--output-file", fileNameField.getText());
+        params.AddZGrabParam(result);
+    }
+
+    public Component[] GetComponents(){
+        Component components[] = {portField, fileNameField, sourceFileField, addParamsArea};
+        return components;
+    }
+
+    public void SetParams(ZGrabParams params){
+        portField.setText(params.GetZGrabParam("--port"));
+        addParamsArea.setText(params.GetZGrabParam("add-params"));
+        fileNameField.setText(params.GetZGrabParam("--output-file"));
+        sourceFileField.setText(params.GetZGrabParam("--input-file"));
     }
 
     public void Show(AbstractContainer container) {

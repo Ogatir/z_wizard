@@ -3,6 +3,7 @@ package z_wizard.executors;
 import z_wizard.UTIL_TYPE;
 import z_wizard.containers.AbstractContainer;
 import z_wizard.containers.ZDnsParams;
+import z_wizard.containers.ZGrabParams;
 import z_wizard.containers.ZMapParams;
 
 import java.io.*;
@@ -14,6 +15,7 @@ public class ExecutionManager {
     private ZGrabExecutor zGrabExecutor;
     private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o", "-f", "--output-fields"};
     private String zDnsKeys[] = {"page", "module", "--output-file"};
+    private String zGrabKeys[] = {"--port", "add-params", "--input-file", "--output-file"};
 
     public ExecutionManager() {
         zMapExecutor = new ZMapExecutor();
@@ -52,6 +54,10 @@ public class ExecutionManager {
             case UT_INVALID:
                 break;
             case UT_ZGRAB:
+                ZGrabParams zGrabParams = (ZGrabParams) paramContainers[0];
+                zGrabExecutor.setzGrabPath((zGrabParams.GetUtilPath()));
+                zGrabExecutor.addExecutionParam(zGrabKeys, zGrabParams);
+                execute_params += zGrabExecutor.getExecutionParams();
                 break;
             case UT_ZDNS:
                 ZDnsParams zDnsParams = (ZDnsParams) paramContainers[0];

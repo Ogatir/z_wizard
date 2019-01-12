@@ -2,6 +2,7 @@ package z_wizard.project;
 
 import z_wizard.containers.CommonSettingsParams;
 import z_wizard.containers.ZDnsParams;
+import z_wizard.containers.ZGrabParams;
 import z_wizard.containers.ZMapParams;
 
 import javax.swing.*;
@@ -48,6 +49,17 @@ public class ProjectSerializer {
         JTextField fileNameField = (JTextField) components[2];
         zDnsParams.Initialize(keys, moduleField.getItemAt(moduleField.getSelectedIndex()).toString(), addrField.getText(), fileNameField.getText());
         projectParams.setzDnsParams(zDnsParams);
+    }
+
+    public void SerializeZGrabParams(Component components[], String pathToZGrab){
+        ZGrabParams zGrabParams = new ZGrabParams(pathToZGrab);
+        String keys[] = {"--port", "--output-file", "--input-file", "add-params"};
+        JTextField portField = (JTextField) components[0];
+        JTextField fileNameField = (JTextField) components[1];
+        JTextField sourceFileField = (JTextField) components[2];
+        JTextArea addParamsArea = (JTextArea) components[3];
+        zGrabParams.Initialize(keys, portField.getText(), fileNameField.getText(), sourceFileField.getText(), addParamsArea.getText());
+        projectParams.setzGrabParams(zGrabParams);
     }
 
     public ProjectParams getProjectParams() {

@@ -128,6 +128,7 @@ public class MainWindow extends JFrame {
                             threadsField, fileNameField, speedBox, comm_settings.GetCurrentParams().get("zMapPath"));
                     serializer.SerializeCommonParams(comm_settings.GetComponents());
                     serializer.SerializeZDnsParams(zdns.GetComponents(), comm_settings.GetCurrentParams().get("zDnsPath"));
+                    serializer.SerializeZGrabParams(zGrabSettings.GetComponents(), comm_settings.GetCurrentParams().get("zGrabPath"));
                     JsonParser.ProjectToJson(serializer.getProjectParams(), file);
                 }
             }
@@ -169,6 +170,7 @@ public class MainWindow extends JFrame {
                     util_type = UTIL_TYPE.UT_ZMAP_ONLY;
                 if (CheckParams(util_type, outputArea))
                     return;
+                AbstractContainer container[];
                 outputArea.append("Starting:\n");
                 switch (util_type){
                     case UT_ZMAP_ONLY:
@@ -176,10 +178,14 @@ public class MainWindow extends JFrame {
                         result = executionManager.ExecuteUtils(util_type, zmapParams);
                         break;
                     case UT_ZDNS:
-                        AbstractContainer container[] = new AbstractContainer[1];
+                        container = new AbstractContainer[1];
                         container[0] = zDnsParams;
                         result = executionManager.ExecuteUtils(util_type, container);
                         break;
+                    case UT_ZGRAB:
+                        container = new AbstractContainer[1];
+                        container[0] = zGrabParams;
+                        result = executionManager.ExecuteUtils(util_type, container);
                 }
                 outputArea.append(result);
                 outputArea.append("Finished\n\n");
@@ -271,6 +277,7 @@ public class MainWindow extends JFrame {
 
         comm_settings.SetParams(params.getCommonSettingsParams());
         zdns.SetParams(params.getzDnsParams());
+        zGrabSettings.SetParams(params.getzGrabParams());
     }
 
     private boolean CheckParams(UTIL_TYPE type, JTextArea outputArea){

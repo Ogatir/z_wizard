@@ -1,7 +1,6 @@
 package z_wizard.executors;
 
 import z_wizard.containers.ZGrabParams;
-import z_wizard.containers.ZMapParams;
 
 public class ZGrabExecutor {
 
@@ -16,8 +15,17 @@ public class ZGrabExecutor {
         for (String key : zGrabParams){
             String param = params.GetZGrabParam(key);
             if (param != null && param.length()!=0){
-                executionParams += " " + key;
-                executionParams += " " + param;
+                if (key.equals("add-params")){
+                    executionParams += " " + param;
+                } else if (key.equals("--input-file") || key.equals("--output-file")){
+                    executionParams += " " + key;
+                    executionParams += "=" + param;
+                } else {
+                    executionParams += " " + key;
+                    executionParams += " " + param;
+                }
+
+
             }
         }
     }
