@@ -1,5 +1,7 @@
 package z_wizard.containers;
 
+import java.util.Map;
+
 public class ZTagParams extends AbstractContainer {
 
     public ZTagParams(String path){
@@ -17,6 +19,7 @@ public class ZTagParams extends AbstractContainer {
     public void AddZTagParam(String param_type, String param){
         params_list.put(param_type, param);
     }
+    public void AddZTagParam (Map<String, String> params) {params_list.putAll(params);}
 
     public String GetZTagParam(String param_name){
         if (params_list.containsKey(param_name))

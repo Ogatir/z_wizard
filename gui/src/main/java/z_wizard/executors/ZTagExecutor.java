@@ -1,6 +1,5 @@
 package z_wizard.executors;
 
-import z_wizard.containers.ZMapParams;
 import z_wizard.containers.ZTagParams;
 
 public class ZTagExecutor {
@@ -16,10 +15,29 @@ public class ZTagExecutor {
         for (String key : zTagParams){
             String param = params.GetZTagParam(key);
             if (param != null && param.length()!=0){
+                if (key.equals("output-file"))
+                    continue;
                 executionParams += " " + key;
-                executionParams += " " + param;
+                if (key.equals("-l"))
+                    if (param.equals("/dev/null"))
+                        executionParams += " " + "/dev/null";
+                    else
+                        executionParams += " " + param;
+                else if (key.equals("-m"))
+                    if (param.equals("/dev/null"))
+                        executionParams += " " + "/dev/null";
+                    else
+                        executionParams += " " + param;
+                else if (key.equals("--updates-file"))
+                    if (param.equals("/dev/null"))
+                        executionParams += " " + "/dev/null";
+                    else
+                        executionParams += " " + param;
+                else
+                    executionParams += " " + param;
             }
         }
+        //executionParams += " > " + params.GetZTagParam("output-file") + "/ztag.json";
     }
 
     public String getExecutionParams() { return executionParams; }

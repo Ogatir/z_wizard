@@ -64,6 +64,7 @@ public class MainWindow extends JFrame {
     private ZMapOutputParams zMapOutputParams;
     private ZDnsParams zDnsParams;
     private ZGrabParams zGrabParams;
+    private ZTagParams zTagParams;
     private CommonSettingsParams commonSettingsParams = new CommonSettingsParams();
     public MainWindow() {
         executionManager = new ExecutionManager();
@@ -92,6 +93,7 @@ public class MainWindow extends JFrame {
         openFileBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFileChooser fileopen = new JFileChooser();
+                fileopen.setCurrentDirectory( new File("/home"));
                 int ret = fileopen.showDialog(null, "Открыть файл");
                 if (ret == JFileChooser.APPROVE_OPTION) {
                     File file = fileopen.getSelectedFile();
@@ -129,6 +131,7 @@ public class MainWindow extends JFrame {
                     serializer.SerializeCommonParams(comm_settings.GetComponents());
                     serializer.SerializeZDnsParams(zdns.GetComponents(), comm_settings.GetCurrentParams().get("zDnsPath"));
                     serializer.SerializeZGrabParams(zGrabSettings.GetComponents(), comm_settings.GetCurrentParams().get("zGrabPath"));
+                    serializer.SerializeZTagParams(ztag.GetComponents(), comm_settings.GetCurrentParams().get("zTagPath"));
                     JsonParser.ProjectToJson(serializer.getProjectParams(), file);
                 }
             }
@@ -186,6 +189,10 @@ public class MainWindow extends JFrame {
                         container = new AbstractContainer[1];
                         container[0] = zGrabParams;
                         result = executionManager.ExecuteUtils(util_type, container);
+                    case UT_ZTAG:
+                        container = new AbstractContainer[1];
+                        container[0] = zTagParams;
+                        result = executionManager.ExecuteUtils(util_type, container);
                 }
                 outputArea.append(result);
                 outputArea.append("Finished\n\n");
@@ -204,7 +211,8 @@ public class MainWindow extends JFrame {
                         zdns.Show(zDnsParams);
                         break;
                     case UT_ZTAG:
-                        ztag = new ZTagSettings();
+                        zTagParams = new ZTagParams(comm_settings.GetCurrentParams().get("zTagPath"));
+                        ztag.Show(zTagParams);
                         break;
                     case UT_ZANNOTATE:
                         zAnnotate = new ZAnnotateSettings();
@@ -278,6 +286,12 @@ public class MainWindow extends JFrame {
         comm_settings.SetParams(params.getCommonSettingsParams());
         zdns.SetParams(params.getzDnsParams());
         zGrabSettings.SetParams(params.getzGrabParams());
+        ztag.SetParams(params.getzTagParams());
+
+        zDnsParams = params.getzDnsParams();
+        zGrabParams = params.getzGrabParams();
+        zTagParams = params.getzTagParams();
+        commonSettingsParams = params.getCommonSettingsParams();
     }
 
     private boolean CheckParams(UTIL_TYPE type, JTextArea outputArea){

@@ -1,10 +1,7 @@
 package z_wizard.executors;
 
 import z_wizard.UTIL_TYPE;
-import z_wizard.containers.AbstractContainer;
-import z_wizard.containers.ZDnsParams;
-import z_wizard.containers.ZGrabParams;
-import z_wizard.containers.ZMapParams;
+import z_wizard.containers.*;
 
 import java.io.*;
 
@@ -13,14 +10,17 @@ public class ExecutionManager {
     private ZMapExecutor zMapExecutor;
     private ZDnsExecutor zDnsExecutor;
     private ZGrabExecutor zGrabExecutor;
+    private ZTagExecutor zTagExecutor;
     private String zmapKeys[] = {"-B", "-p", "-n", "-T", "-o", "-f", "--output-fields"};
     private String zDnsKeys[] = {"page", "module", "--output-file"};
     private String zGrabKeys[] = {"--port", "add-params", "--input-file", "--output-file"};
+    private String zTagKeys[] = {"-i", "-p", "-P", "-S", "output-file", "-l", "-m", "--updates-file"};
 
     public ExecutionManager() {
         zMapExecutor = new ZMapExecutor();
         zDnsExecutor = new ZDnsExecutor();
         zGrabExecutor = new ZGrabExecutor();
+        zTagExecutor = new ZTagExecutor();
     }
 
     public String ExecuteUtils(UTIL_TYPE util_type, ZMapParams zmapParams) {
@@ -66,6 +66,10 @@ public class ExecutionManager {
                 execute_params += zDnsExecutor.getExecutionParams();
                 break;
             case UT_ZTAG:
+                ZTagParams zTagParams = (ZTagParams) paramContainers[0];
+                zTagExecutor.setzTagPath(zTagParams.GetUtilPath());
+                zTagExecutor.addExecutionParam(zTagKeys, zTagParams);
+                execute_params += zTagExecutor.getExecutionParams();
                 break;
             case UT_ZANNOTATE:
                 break;

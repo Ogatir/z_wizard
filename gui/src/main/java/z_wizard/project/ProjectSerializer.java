@@ -1,9 +1,6 @@
 package z_wizard.project;
 
-import z_wizard.containers.CommonSettingsParams;
-import z_wizard.containers.ZDnsParams;
-import z_wizard.containers.ZGrabParams;
-import z_wizard.containers.ZMapParams;
+import z_wizard.containers.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -60,6 +57,25 @@ public class ProjectSerializer {
         JTextArea addParamsArea = (JTextArea) components[3];
         zGrabParams.Initialize(keys, portField.getText(), fileNameField.getText(), sourceFileField.getText(), addParamsArea.getText());
         projectParams.setzGrabParams(zGrabParams);
+    }
+    public void SerializeZTagParams(Component components[], String pathToZGTag){
+        ZTagParams zTagParams = new ZTagParams(pathToZGTag);
+        String zTagKeys[] = {"-i", "-p", "-P", "-S", "output-file", "-l", "-m", "--updates-file"};
+        JTextField sourceFileField = (JTextField) components[0];
+        JTextField portField = (JTextField) components[1];
+        JTextField protField = (JTextField) components[2];
+        JTextField methodField = (JTextField) components[3];
+        JTextField outputDirField = (JTextField) components[4];
+        JCheckBox logCheck = (JCheckBox) components[5];
+        JCheckBox metaCheck = (JCheckBox) components[6];
+        JCheckBox updatesCheck = (JCheckBox) components[7];
+
+        zTagParams.Initialize(zTagKeys, sourceFileField.getText(), portField.getText(), protField.getText(),
+                methodField.getText(), outputDirField.getText(),
+                logCheck.isEnabled() ? outputDirField.getText() + "/ztag_log.txt" :"/dev/null",
+                metaCheck.isEnabled() ? outputDirField.getText() + "/ztag_meta.json" :"/dev/null",
+                updatesCheck.isEnabled() ? outputDirField.getText() + "/ztag_u.csv" :"/dev/null");
+        projectParams.setzTagParams(zTagParams);
     }
 
     public ProjectParams getProjectParams() {
