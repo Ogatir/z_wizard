@@ -187,17 +187,20 @@ public class MainWindow extends JFrame {
                     case UT_ZMAP_ONLY:
                         ZMapParams zmapParams = PrepareZmapParams();
                         result = executionManager.ExecuteUtils(util_type, zmapParams);
-                        dataBase.importZmapAllFields("/home/ogatir/zmap.csv");
+                        if (toFileCheckBox.isSelected())
+                            dataBase.insertZmap(zmapParams.GetZmapParam("-o"));
                         break;
                     case UT_ZDNS:
                         container = new AbstractContainer[1];
                         container[0] = zDnsParams;
                         result = executionManager.ExecuteUtils(util_type, container);
+                        dataBase.insertZdns(zDnsParams.GetZDnsParam("fileNameField"));
                         break;
                     case UT_ZGRAB:
                         container = new AbstractContainer[1];
                         container[0] = zGrabParams;
                         result = executionManager.ExecuteUtils(util_type, container);
+                        dataBase.insertZgrab(zGrabParams.GetZGrabParam("--output-file"));
                     case UT_ZTAG:
                         container = new AbstractContainer[1];
                         container[0] = zTagParams;

@@ -55,13 +55,15 @@ public class DataBaseSettings implements ICrossFormable{
                     Class.forName("com.mysql.cj.jdbc.Driver");
                     Connection connection = DriverManager.getConnection("jdbc:mysql://"+serverField.getText()+"/zwizard" +
                             "?useTimezone=true" +
-                            "&serverTimezone=UTC", properties);;
+                            "&serverTimezone=UTC", properties);
                 } catch (SQLException e){
                     e.printStackTrace();
                     connStatus.setText("Соединения нет");
+                    return;
                 } catch (ClassNotFoundException e){
                     e.printStackTrace();
                     connStatus.setText("Нет драйвера");
+                    return;
                 }
                 connStatus.setText("Соединение есть");
             }
