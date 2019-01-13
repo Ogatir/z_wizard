@@ -77,6 +77,14 @@ public class ProjectSerializer {
                 updatesCheck.isEnabled() ? outputDirField.getText() + "/ztag_u.csv" :"/dev/null");
         projectParams.setzTagParams(zTagParams);
     }
+    public void SerializeDBParams(Component components[]){
+        DataBaseParams dataBaseParams = new DataBaseParams();
+//        String DatabaseKeys[]
+//        result.put("server", serverField.getText());
+//        result.put("login", loginField.getText());
+//        result.put("pass", passField.getText());
+
+    }
 
     public ProjectParams getProjectParams() {
         return projectParams;

@@ -6,6 +6,7 @@ import z_wizard.executors.ExecutionManager;
 import z_wizard.project.JsonParser;
 import z_wizard.project.ProjectParams;
 import z_wizard.project.ProjectSerializer;
+import z_wizard.DataBase;
 
 import javax.swing.*;
 import java.awt.event.*;
@@ -47,6 +48,7 @@ public class MainWindow extends JFrame {
     private JTextArea TextArea;
 
 
+
     private String progs[] = { "ZMap only" ,"ZGrab", "ZDns", "ZTag", "ZAnnotate" };
     private String speedTypes[] = {"k", "M"};
     private String zmapKeys[] = {"-B", "-p", "-n", "-T"};
@@ -55,17 +57,20 @@ public class MainWindow extends JFrame {
     private ZDnsSettings zdns = new ZDnsSettings();
     private ZTagSettings ztag = new ZTagSettings();
     private ZAnnotateSettings zAnnotate = new ZAnnotateSettings();
-    private DataBaseSettings db = new DataBaseSettings();
     private ZMapOutputs zMapOutputs = new ZMapOutputs();
     private CommonSettings comm_settings = new CommonSettings();
 
     private ExecutionManager executionManager;
+    private DataBase dataBase = new DataBase();
+    private DataBaseSettings db = new DataBaseSettings(dataBase);
 
     private ZMapOutputParams zMapOutputParams;
     private ZDnsParams zDnsParams;
     private ZGrabParams zGrabParams;
     private ZTagParams zTagParams;
     private CommonSettingsParams commonSettingsParams = new CommonSettingsParams();
+    private DataBaseParams dataBaseParams;
+
     public MainWindow() {
         executionManager = new ExecutionManager();
         this.getContentPane().add(mainPanel);
@@ -80,7 +85,8 @@ public class MainWindow extends JFrame {
         //Open database settings window
         dbSetBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
-//            DataBaseSettings db = new DataBaseSettings();
+                dataBaseParams = new DataBaseParams();
+                db.Show(dataBaseParams);
             }
         });
         //Open common setting window
@@ -120,6 +126,7 @@ public class MainWindow extends JFrame {
         saveProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFileChooser fileChooser = new JFileChooser();
+                fileChooser.setCurrentDirectory( new File("/home"));
                 fileChooser.setDialogTitle("Сохранить проект");
                 int ret = fileChooser.showSaveDialog(openFileBtn);
                 if (ret == JFileChooser.APPROVE_OPTION){
@@ -141,6 +148,7 @@ public class MainWindow extends JFrame {
         openProjectBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent actionEvent) {
                 JFileChooser fileopen = new JFileChooser();
+                fileopen.setCurrentDirectory( new File("/home"));
                 int ret = fileopen.showDialog(null, "Открыть проект");
                 if (ret == JFileChooser.APPROVE_OPTION) {
                     File file = fileopen.getSelectedFile();
@@ -179,6 +187,7 @@ public class MainWindow extends JFrame {
                     case UT_ZMAP_ONLY:
                         ZMapParams zmapParams = PrepareZmapParams();
                         result = executionManager.ExecuteUtils(util_type, zmapParams);
+                        dataBase.importZmapAllFields("/home/ogatir/zmap.csv");
                         break;
                     case UT_ZDNS:
                         container = new AbstractContainer[1];

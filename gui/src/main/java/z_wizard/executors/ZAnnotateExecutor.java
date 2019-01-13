@@ -7,7 +7,7 @@ public class ZAnnotateExecutor {
     private String zAnnotatePath;
     private String executionParams;
 
-    public void setzTagPath(String zmapPath) { this.zAnnotatePath = zmapPath; }
+    public void setzTagPath(String zAnnotatePath) { this.zAnnotatePath = zAnnotatePath; }
     public String getzTagPath() { return zAnnotatePath; }
 
     public void addExecutionParam(String zAnnotateParams[], ZAnnotateParams params){
